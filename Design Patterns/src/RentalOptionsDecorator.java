@@ -6,4 +6,9 @@ abstract class RentalOptionsDecorator {
     }
 
     public abstract String get_description();
+
+    public double calculateTotalCost() {
+
+        return 20;
+    }
 }
