@@ -30,7 +30,7 @@
 
 import java.util.List;
 
-public class Car {
+public abstract class Car {
     private String type;
     private String brand;
     private String model;
@@ -38,7 +38,8 @@ public class Car {
     private double pricePerKm;
     private int freeKm;
 
-    public Car(String type, String brand, String model, double dailyRate, double pricePerKm, int freeKm) {
+    //, String brand, String model, double dailyRate, double pricePerKm, int freeKm
+    public Car(String type) {
         this.type = type;
         this.brand = brand;
         this.model = model;
@@ -58,13 +59,15 @@ public class Car {
         return (float) totalCost;
     }
 
-    public static void main(String[] args) {
-        Car luxuryCar = new Car("Luxury", "Rolls Royce", "Spectre", 2000, 1, 250);
-        RentalAgreement rentalAgreement = new RentalAgreement((CarInterface) luxuryCar, 7, "John Doe");
-        List<RentalOptionsDecorator> rentalOptionsDecorators = List.of(new ExtraKilometerDecorator(rentalAgreement), new TowBarDecorator(rentalAgreement));
+//    public static void main(String[] args) {
+//        Car luxuryCar = new Car("Luxury", "Rolls Royce", "Spectre", 2000, 1, 250);
+//        RentalAgreement rentalAgreement = new RentalAgreement((CarInterface) luxuryCar, 7, "John Doe");
+//        List<RentalOptionsDecorator> rentalOptionsDecorators = List.of(new ExtraKilometerDecorator(rentalAgreement), new TowBarDecorator(rentalAgreement));
+//
+//        float totalCost = luxuryCar.calculateTotalCost(rentalAgreement, rentalOptionsDecorators);
+//        System.out.println("Total Cost: " + totalCost);
+//    }
 
-        float totalCost = luxuryCar.calculateTotalCost(rentalAgreement, rentalOptionsDecorators);
-        System.out.println("Total Cost: " + totalCost);
-    }
+    public abstract void assemble();
 }
 
