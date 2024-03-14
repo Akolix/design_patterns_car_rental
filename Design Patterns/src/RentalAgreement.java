@@ -14,7 +14,7 @@
 //    }
 //}
 
-class RentalAgreement implements RentalAgreementInterface {
+abstract class RentalAgreement implements RentalAgreementInterface {
     private CarInterface car;
     private int duration;
     private String customer;
