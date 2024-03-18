@@ -1,33 +1,3 @@
-//import java.util.List;
-//
-//public class Car {
-//    private String type;
-//    private String brand;
-//    private String model;
-//    private double dailyRate;
-//    private double pricePerKm;
-//    private int freeKm;
-//
-//    public Car(String type, String brand, String model, double dailyRate, double pricePerKm, int freeKm) {
-//        this.type = type;
-//        this.brand = brand;
-//        this.model = model;
-//        this.dailyRate = dailyRate;
-//        this.pricePerKm = pricePerKm;
-//        this.freeKm = freeKm;
-//    }
-//
-//    public static void main(String[] args) {
-//        Car luxuryCar = new Car("Luxury", "Rolls Royce", "Spectre", 2000, 1, 250);
-//    }
-//
-//    public float calculateTotalCost(int, List<RentalOptionsDecorator> rentalOptionsDecorators ) {
-//        float totalCost = dailyRate + duration + rentalOptionsDecorators;
-//        return totalCost;
-//    }
-//}
-
-
 import java.util.List;
 
 public abstract class Car {
@@ -37,15 +7,16 @@ public abstract class Car {
     private double dailyRate;
     private double pricePerKm;
     private int freeKm;
+    private int odometer;
 
-    //, String brand, String model, double dailyRate, double pricePerKm, int freeKm
-    public Car(String type) {
+    public Car(String type, String brand, String model, double dailyRate, double pricePerKm, int freeKm) {
         this.type = type;
         this.brand = brand;
         this.model = model;
         this.dailyRate = dailyRate;
         this.pricePerKm = pricePerKm;
         this.freeKm = freeKm;
+        this.odometer = 0;
     }
 
     public float calculateTotalCost(RentalAgreement rentalAgreement, List<RentalOptionsDecorator> rentalOptionsDecorators) {
@@ -60,18 +31,16 @@ public abstract class Car {
     }
 
     public double getDailyRate() {
-        return  dailyRate;
+        return dailyRate;
     }
 
-//    public static void main(String[] args) {
-//        Car luxuryCar = new Car("Luxury", "Rolls Royce", "Spectre", 2000, 1, 250);
-//        RentalAgreement rentalAgreement = new RentalAgreement((CarInterface) luxuryCar, 7, "John Doe");
-//        List<RentalOptionsDecorator> rentalOptionsDecorators = List.of(new ExtraKilometerDecorator(rentalAgreement), new TowBarDecorator(rentalAgreement));
-//
-//        float totalCost = luxuryCar.calculateTotalCost(rentalAgreement, rentalOptionsDecorators);
-//        System.out.println("Total Cost: " + totalCost);
-//    }
+    public int getOdometer() {
+        return odometer;
+    }
+
+    public void setOdometer(int odometer) {
+        this.odometer = odometer;
+    }
 
     public abstract void assemble();
 }
-
