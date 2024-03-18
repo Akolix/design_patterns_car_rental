@@ -59,6 +59,10 @@ public abstract class Car {
         return (float) totalCost;
     }
 
+    public double getDailyRate() {
+        return  dailyRate;
+    }
+
 //    public static void main(String[] args) {
 //        Car luxuryCar = new Car("Luxury", "Rolls Royce", "Spectre", 2000, 1, 250);
 //        RentalAgreement rentalAgreement = new RentalAgreement((CarInterface) luxuryCar, 7, "John Doe");
