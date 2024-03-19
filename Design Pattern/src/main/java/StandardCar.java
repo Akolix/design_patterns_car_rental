@@ -73,4 +73,9 @@ class StandardCar extends Car implements CarInterface {
     public void assemble() {
         System.out.println("Assembling StandardCar");
     }
+
+    @Override
+    public double getDailyRate() {
+        return 0;
+    }
 }

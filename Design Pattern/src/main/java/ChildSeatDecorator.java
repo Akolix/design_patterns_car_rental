@@ -1,13 +1,20 @@
-class ChildSeatDecorator extends RentalOptionsDecorator {
+public class ChildSeatDecorator extends RentalOptionsDecorator {
     public ChildSeatDecorator(RentalAgreementInterface rental_agreement) {
         super(rental_agreement);
     }
 
-    public double calculate_total_cost() {
-        return rental_agreement.calculate_total_cost() + 15;
+    @Override
+    public String get_description() {
+        return null;
     }
 
-    public String get_description() {
-        return rental_agreement.make_rental_agreement() + ", Child Seat";
+    @Override
+    public double calculateTotalCost() {
+        return rental_agreement.calculateTotalCost() + 15; // Add the cost of the child seat
+    }
+
+    @Override
+    public String getDescription() {
+        return rental_agreement.getDescription() + ", Child Seat";
     }
 }

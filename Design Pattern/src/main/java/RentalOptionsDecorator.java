@@ -11,4 +11,6 @@ abstract class RentalOptionsDecorator {
 
         return 20;
     }
+
+    public abstract String getDescription();
 }

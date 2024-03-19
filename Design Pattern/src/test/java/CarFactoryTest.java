@@ -25,4 +25,7 @@ class CarFactoryTest {
             Car invalidCar = CarFactory.createCar("invalid");
         });
     }
+
+    @Test
+    void returnCar() {}
 }

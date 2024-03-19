@@ -26,4 +26,9 @@ class LuxuryCar extends Car implements CarInterface {
     public void assemble() {
         System.out.println("Assembling LuxuryCar");
     }
+
+    @Override
+    public double getDailyRate() {
+        return 0;
+    }
 }

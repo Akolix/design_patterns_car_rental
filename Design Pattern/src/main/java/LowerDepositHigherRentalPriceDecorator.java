@@ -10,4 +10,9 @@ class LowerDepositHigherRentalPrice extends RentalOptionsDecorator {
     public String get_description() {
         return rental_agreement.make_rental_agreement() + ", Lower Deposit Higher Rental Price";
     }
+
+    @Override
+    public String getDescription() {
+        return null;
+    }
 }
