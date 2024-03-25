@@ -5,7 +5,7 @@ public class LuxuryCar extends Car {
     private double price_per_km;
     private int free_km;
 
-    public LuxuryCar(String brand, String model, double daily_rate, double price_per_km, int free_km) {
+    public LuxuryCar(String brand, String model, double daily_rate, double price_per_km, int free_km, double deposit) {
         super("luxury");
         this.brand = brand;
         this.model = model;

@@ -17,7 +17,7 @@ class EconomyCar extends Car implements CarInterface {
     private double price_per_km;
     private int free_km;
 
-    public EconomyCar(String brand, String model, double daily_rate, double price_per_km, int free_km) {
+    public EconomyCar(String brand, String model, double daily_rate, double price_per_km, int free_km, double deposit) {
         super("Economy");
         this.brand = brand;
         this.model = model;

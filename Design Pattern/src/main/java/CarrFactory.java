@@ -1,9 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 //public class CarrFactory {
@@ -65,14 +63,14 @@ public class CarrFactory {
     static final List<Car> createdCars = new ArrayList<>();
     static final Map<String, Integer> carTypeCounts = new HashMap<>();
 
-    public static Car createCar(String type, String brand, String model, double dailyRate, double pricePerKm, int freeKm) {
+    public static Car createCar(String type, String brand, String model, double dailyRate, double pricePerKm, int freeKm, double deposit) {
         Car car;
         if (type.equalsIgnoreCase("luxury")) {
-            car = new LuxuryCar(brand, model, dailyRate, pricePerKm, freeKm);
+            car = new LuxuryCar(brand, model, dailyRate, pricePerKm, freeKm, deposit);
         } else if (type.equalsIgnoreCase("economy")) {
-            car = new EconomyCar(brand, model, dailyRate, pricePerKm, freeKm);
+            car = new EconomyCar(brand, model, dailyRate, pricePerKm, freeKm, deposit);
         } else if (type.equalsIgnoreCase("standard")) {
-            car = new StandardCar(brand, model, dailyRate, pricePerKm, freeKm);
+            car = new StandardCar(brand, model, dailyRate, pricePerKm, freeKm, deposit);
         } else {
             throw new IllegalArgumentException("Invalid car type: " + type);
         }

@@ -8,4 +8,6 @@ public interface RentalAgreementInterface {
     double calculate_total_cost();
 
     String make_rental_agreement();
+
+    String get_description();
 }
