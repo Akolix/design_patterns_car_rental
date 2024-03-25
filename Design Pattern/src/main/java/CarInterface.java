@@ -1,4 +1,6 @@
 public interface CarInterface {
     String getType();
     void assemble();
+    String get_description();
+    double getDaily_rate();
 }

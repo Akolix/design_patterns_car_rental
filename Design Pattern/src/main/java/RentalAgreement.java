@@ -22,7 +22,7 @@ public class RentalAgreement implements RentalAgreementInterface {
     }
 
     public double calculateTotalCost() {
-        double baseCost = car.getDailyRate() * duration;
+        double baseCost = car.getDaily_rate() * duration;
 
         double optionsCost = 0;
         for (RentalOptionsDecorator option : rentalOptions) {

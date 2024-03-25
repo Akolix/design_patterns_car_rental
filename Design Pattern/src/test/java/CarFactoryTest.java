@@ -1,42 +1,25 @@
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.List;
+import java.util.Map;
+
 import org.junit.jupiter.api.BeforeEach;
 
 class CarFactoryTest {
-
-//    @Test
-//    void createLuxuryCar() {
-//        Car luxuryCar = CarFactory.createCar("luxury");
-//        assertNotNull(luxuryCar);
-//        assertTrue(luxuryCar instanceof LuxuryCar);
-//    }
-//
-//    @Test
-//    void createEconomyCar() {
-//        Car economyCar = CarFactory.createCar("economy");
-//        assertNotNull(economyCar);
-//        assertTrue(economyCar instanceof EconomyCar);
-//    }
-//
-//    @Test
-//    void createStandardCAr() {
-//        Car standardCar = CarFactory.createCar("standard");
-//        assertNotNull(standardCar);
-//        assertTrue(standardCar instanceof StandardCar);
-//    }
-//
-//    @Test
-//    void createFaultyCar() {
-//        assertThrows(IllegalArgumentException.class, () -> {
-//            Car EcomonyCar = CarFactory.createCar("invalid car type");
-//        });
-//    }
 
     @BeforeEach
     void setUp() {
         CarFactory.createdCars.clear();
     }
+
+    @AfterEach
+    void tearDown() {
+        CarFactory.createdCars.clear();
+        CarFactory.carTypeCounts.clear(); // Clear the car type counts map
+    }
+
+
 
     @Test
     void createLuxuryCar() {
@@ -130,20 +113,42 @@ class CarFactoryTest {
     }
 
     @Test
-    void createAndListAllCars() {
+    void countAllCars() {
         CarFactory.createCar("luxury", "Rolls Royce", "Spectre", 1000, 2, 50);
         CarFactory.createCar("economy", "Toyota", "Prius", 50, 0.20, 250);
         CarFactory.createCar("standard", "Ford", "Mondeo", 27, 0.39, 150);
 
-        List<String> carTypes = CarFactory.listAllCars();
-
-        System.out.println(carTypes);
-
-        assertEquals(3, carTypes.size());
-        assertTrue(carTypes.contains("luxury"));
-        assertTrue(carTypes.contains("economy"));
-        assertTrue(carTypes.contains("standard"));
+        assertEquals(3, CarFactory.countAllCars());
     }
 
+    @Test
+    void countCarsPerType() {
+        CarFactory.createCar("luxury", "Rolls Royce", "Spectre", 1000, 2, 50);
+        CarFactory.createCar("economy", "Toyota", "Prius", 50, 0.20, 250);
+        CarFactory.createCar("standard", "Ford", "Mondeo", 27, 0.39, 150);
+        CarFactory.createCar("economy", "Kia", "Rio", 55, 0.3, 150);
+
+        Map<String, Integer> carCounts = CarFactory.countCarsPerType();
+        assertEquals(1, carCounts.get("luxury"));
+        assertEquals(2, carCounts.get("economy"));
+        assertEquals(1, carCounts.get("standard"));
+    }
+
+    @Test
+    void removeCar() {
+        Car luxuryCar = CarFactory.createCar("luxury", "Rolls Royce", "Spectre", 1000, 2, 50);
+        Car economyCar = CarFactory.createCar("economy", "Toyota", "Prius", 50, 0.20, 250);
+        Car standardCar = CarFactory.createCar("standard", "Ford", "Mondeo", 27, 0.39, 150);
+
+        CarFactory.removeCar(economyCar);
+        assertEquals(2, CarFactory.countAllCars());
+
+        CarFactory.removeCar(luxuryCar);
+        assertEquals(1, CarFactory.countAllCars());
+
+        // Try removing the same car again
+        CarFactory.removeCar(economyCar);
+        assertEquals(1, CarFactory.countAllCars());
+    }
 
 }

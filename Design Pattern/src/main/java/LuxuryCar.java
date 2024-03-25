@@ -1,4 +1,5 @@
 public class LuxuryCar extends Car implements CarInterface {
+    private String type;
     private String brand;
     private String model;
     private double daily_rate;
@@ -6,7 +7,7 @@ public class LuxuryCar extends Car implements CarInterface {
     private int free_km;
 
     public LuxuryCar(String brand, String model, double daily_rate, double price_per_km, int free_km) {
-        super("luxury"); // Call to the constructor of the superclass
+        super("luxury");
         this.brand = brand;
         this.model = model;
         this.daily_rate = daily_rate;
@@ -14,15 +15,14 @@ public class LuxuryCar extends Car implements CarInterface {
         this.free_km = free_km;
     }
 
-
-//
-//    public String get_description() {
-//        return brand + " " + model;
-//    }
+    @Override
+    public String get_description() {
+        return brand + " " + model;
+    }
 
     @Override
     public String getType() {
-        return getType();
+        return type;
     }
 
     public void setType(String type) {
@@ -74,8 +74,4 @@ public class LuxuryCar extends Car implements CarInterface {
         System.out.println("Assembling luxury car");
     }
 
-    @Override
-    public double getDailyRate() {
-        return 0;
-    }
 }
