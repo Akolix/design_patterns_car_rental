@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-//public class CarFactory {
+//public class CarrFactory {
 //    static final List<Car> createdCars = new ArrayList<>();
 //
 //    // Method to create a car and add it to the list

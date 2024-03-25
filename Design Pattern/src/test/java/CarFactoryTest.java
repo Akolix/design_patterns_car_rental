@@ -136,19 +136,44 @@ class CarFactoryTest {
 
     @Test
     void removeCar() {
-        Car luxuryCar = CarFactory.createCar("luxury", "Rolls Royce", "Spectre", 1000, 2, 50);
-        Car economyCar = CarFactory.createCar("economy", "Toyota", "Prius", 50, 0.20, 250);
-        Car standardCar = CarFactory.createCar("standard", "Ford", "Mondeo", 27, 0.39, 150);
+        CarFactory.createCar("luxury", "Rolls Royce", "Spectre", 1000, 2, 50);
+        CarFactory.createCar("luxury", "Rolls Royce", "Phantom", 750, 1.25, 75);
+        CarFactory.createCar("economy", "Toyota", "Prius", 50, 0.20, 250);
+        CarFactory.createCar("standard", "Ford", "Mondeo", 27, 0.39, 150);
+        CarFactory.createCar("economy", "Kia", "Rio", 55, 0.3, 150);
 
-        CarFactory.removeCar(economyCar);
+        assertEquals(5, CarFactory.countAllCars());
+
+        CarFactory.removeCar("luxury", "rolls royce", "spectre");
+        assertEquals(4, CarFactory.countAllCars());
+
+        // Try to remove the same car again
+        CarFactory.removeCar("luxury", "rolls royce", "spectre");
+        assertEquals(4, CarFactory.countAllCars());
+    }
+
+    @Test
+    void makeTwoOfTheSameCarThenRemoveOne() {
+        CarFactory.createCar("luxury", "Rolls Royce", "Spectre", 1000, 2, 50);
+        CarFactory.createCar("luxury", "Rolls Royce", "Spectre", 1000, 2, 50);
+
         assertEquals(2, CarFactory.countAllCars());
 
-        CarFactory.removeCar(luxuryCar);
-        assertEquals(1, CarFactory.countAllCars());
+        CarFactory.removeCar("luxury", "rolls royce", "spectre");
 
-        // Try removing the same car again
-        CarFactory.removeCar(economyCar);
         assertEquals(1, CarFactory.countAllCars());
     }
 
+    @Test
+    void makeTwoOfTheSameCarThenRemoveThemBoth() {
+        CarFactory.createCar("luxury", "Rolls Royce", "Spectre", 1000, 2, 50);
+        CarFactory.createCar("luxury", "Rolls Royce", "Spectre", 1000, 2, 50);
+
+        assertEquals(2, CarFactory.countAllCars());
+
+        CarFactory.removeCar("luxury", "rolls royce", "spectre");
+        CarFactory.removeCar("luxury", "rolls royce", "spectre");
+
+        assertEquals(0, CarFactory.countAllCars());
+    }
 }

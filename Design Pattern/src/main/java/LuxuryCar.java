@@ -1,5 +1,4 @@
-public class LuxuryCar extends Car implements CarInterface {
-    private String type;
+public class LuxuryCar extends Car {
     private String brand;
     private String model;
     private double daily_rate;
@@ -21,14 +20,11 @@ public class LuxuryCar extends Car implements CarInterface {
     }
 
     @Override
-    public String getType() {
-        return type;
+    public void assemble() {
+        System.out.println("Assembling luxury car");
     }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
+    @Override
     public String getBrand() {
         return brand;
     }
@@ -37,8 +33,13 @@ public class LuxuryCar extends Car implements CarInterface {
         this.brand = brand;
     }
 
+    @Override
     public String getModel() {
         return model;
+    }
+    @Override
+    public String getType() {
+        return "luxury";
     }
 
     public void setModel(String model) {
@@ -69,9 +70,6 @@ public class LuxuryCar extends Car implements CarInterface {
         this.free_km = free_km;
     }
 
-    @Override
-    public void assemble() {
-        System.out.println("Assembling luxury car");
-    }
+
 
 }

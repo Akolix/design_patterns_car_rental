@@ -17,10 +17,8 @@ class EconomyCar extends Car implements CarInterface {
     private double price_per_km;
     private int free_km;
 
-    //String type, String brand, String model, double daily_rate, double price_per_km, int free_km
     public EconomyCar(String brand, String model, double daily_rate, double price_per_km, int free_km) {
         super("Economy");
-        this.type = type;
         this.brand = brand;
         this.model = model;
         this.daily_rate = daily_rate;
@@ -35,12 +33,13 @@ class EconomyCar extends Car implements CarInterface {
 
     @Override
     public String getType() {
-        return type;
+        return "Economy";
     }
     public void setType(String type) {
         this.type = type;
     }
 
+    @Override
     public String getBrand() {
         return brand;
     }
@@ -49,6 +48,7 @@ class EconomyCar extends Car implements CarInterface {
         this.brand = brand;
     }
 
+    @Override
     public String getModel() {
         return model;
     }

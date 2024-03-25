@@ -34,13 +34,14 @@ class StandardCar extends Car implements CarInterface {
 
     @Override
     public String getType() {
-        return type;
+        return "Standard";
     }
 
     public void setType(String type) {
         this.type = type;
     }
 
+    @Override
     public String getBrand() {
         return brand;
     }
@@ -49,6 +50,7 @@ class StandardCar extends Car implements CarInterface {
         this.brand = brand;
     }
 
+    @Override
     public String getModel() {
         return model;
     }
