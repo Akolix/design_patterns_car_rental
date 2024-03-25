@@ -1,4 +1,4 @@
 public interface CarInterface {
-    String get_description();
+    String getType();
     void assemble();
 }
