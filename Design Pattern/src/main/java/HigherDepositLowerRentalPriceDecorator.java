@@ -11,14 +11,14 @@ class HigherDepositLowerRentalPrice extends RentalOptionsDecorator {
         return adjustedDailyRate;
     }
 
-    public String get_description() {
-        return rental_agreement.make_rental_agreement() + ", Higher Deposit Lower Rental Price";
-    }
-
-    @Override
-    public String getDescription() {
-        return null;
-    }
+//    public String get_description() {
+//        return rental_agreement.make_rental_agreement() + ", Higher Deposit Lower Rental Price";
+//    }
+//
+//    @Override
+//    public String getDescription() {
+//        return null;
+//    }
 
     // Override the method to calculate the deposit
     @Override

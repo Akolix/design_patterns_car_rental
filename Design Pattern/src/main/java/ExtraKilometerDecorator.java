@@ -22,13 +22,9 @@ class ExtraKilometerDecorator extends RentalOptionsDecorator {
         return rental_agreement.calculateTotalCost() + extraKmCost;
     }
 
-    @Override
-    public String get_description() {
-        return rental_agreement.get_description() + ", Extra Kilometers";
-    }
-
-    @Override
-    public String getDescription() {
-        return null; // You can implement this if needed
-    }
+//    @Override
+//    public String get_description() {
+//        return rental_agreement.) + ", Extra Kilometers";
+//    }
 }
+
