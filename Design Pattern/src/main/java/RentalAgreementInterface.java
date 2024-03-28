@@ -3,9 +3,11 @@ public interface RentalAgreementInterface {
     int getDuration();
     double calculateTotalCost();
 
-    String getDescription();
+//    String getDescription();
 
     double calculate_total_cost();
 
     String make_rental_agreement();
+
+//    String get_description();
 }

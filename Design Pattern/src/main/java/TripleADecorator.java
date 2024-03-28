@@ -11,8 +11,8 @@ class TripleADecorator extends RentalOptionsDecorator {
         return rental_agreement.make_rental_agreement() + ", AAA Discount";
     }
 
-    @Override
-    public String getDescription() {
-        return null;
-    }
+//    @Override
+//    public String getDescription() {
+//        return null;
+//    }
 }

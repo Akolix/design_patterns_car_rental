@@ -11,8 +11,8 @@ class TowBarDecorator extends RentalOptionsDecorator {
         return rental_agreement.make_rental_agreement() + ", Tow Bar";
     }
 
-    @Override
-    public String getDescription() {
-        return null;
-    }
+//    @Override
+//    public String getDescription() {
+//        return null;
+//    }
 }

@@ -14,7 +14,7 @@ public class RentalAgreement implements RentalAgreementInterface {
     }
 
     public String make_rental_agreement() {
-        return "Rental Agreement: " + customer + ", " + duration + " days, " + car.get_description();
+        return "Rental Agreement: " + customer + ", " + duration + " days, ";
     }
 
     public int getDuration() {
@@ -22,7 +22,7 @@ public class RentalAgreement implements RentalAgreementInterface {
     }
 
     public double calculateTotalCost() {
-        double baseCost = car.getDailyRate() * duration;
+        double baseCost = car.getDaily_rate() * duration;
 
         double optionsCost = 0;
         for (RentalOptionsDecorator option : rentalOptions) {
@@ -32,10 +32,10 @@ public class RentalAgreement implements RentalAgreementInterface {
         return baseCost + optionsCost;
     }
 
-    @Override
-    public String getDescription() {
-        return null;
-    }
+//    @Override
+//    public String getDescription() {
+//        return null;
+//    }
 
     @Override
     public double calculate_total_cost() {
