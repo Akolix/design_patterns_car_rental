@@ -1,30 +1,17 @@
-//public class CompanyPricingStrategy implements PricingStrategy {
-//    private static final double TAX_RATE = 0.21;
-//
-//    @Override
-//    public double calculateCost(double dailyRate, int duration) {
-//
-//        double rentalCost = (dailyRate * TAX_RATE); // Adjusting for tax cut
-//        return rentalCost;
-//    }
-//
-//    @Override
-//    public PricingStrategy selectStrategy(int duration) {
-//        return null;
-//    }
-//}
-
 public class CompanyPricingStrategy implements PricingStrategy {
-    private static final double TAX_RATE = 1.21;
+    static final double TAX_RATE = 0.21;
 
     @Override
-    public double calculateCost(double dailyRate, int duration) {
-        double rentalCost = dailyRate / TAX_RATE;
-        return rentalCost;
+    public double calculateCost(double rentalCost, int duration) {
+        double adjustedCost = rentalCost * TAX_RATE;
+
+        PricingStrategy selectedStrategy = selectStrategy(duration);
+
+        return selectedStrategy.calculateCost(adjustedCost, duration);
     }
 
     @Override
-    public PricingStrategy selectStrategy(int duration, double rentalCost) {
+    public PricingStrategy selectStrategy(int duration) {
         if (duration >= 30) {
             return new MonthlyPricingStrategy();
         } else if (duration >= 7) {
