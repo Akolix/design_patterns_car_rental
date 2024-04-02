@@ -20,11 +20,11 @@ class TowBarDecorator extends RentalOptionsDecorator {
 
     @Override
     public double calculateTotalCost() {
-        return rental_agreement.calculateTotalCost() + 20.0;
+        return 40;
     }
 
     @Override
     public String makeRentalAgreement() {
-        return rental_agreement.make_rental_agreement() + ", Tow Bar";
+        return "Tow Bar  option added";
     }
 }

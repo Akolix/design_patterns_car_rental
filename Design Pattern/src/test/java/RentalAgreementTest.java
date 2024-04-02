@@ -9,7 +9,7 @@ class RentalAgreementTest {
     @Test
     void make_rental_agreement() {
         CarInterface car = new EconomyCar("Toyota", "Corolla", 40.0, 0.25, 100, 500, 0);
-        RentalAgreement rentalAgreement = new RentalAgreement(car, 5, "John Doe", new ArrayList<RentalOptionsDecorator>() );
+        RentalAgreement rentalAgreement = new RentalAgreement(car, 5, "John Doe");
         assertEquals("Rental Agreement: John Doe, 5 days, ", rentalAgreement.make_rental_agreement());
     }
 

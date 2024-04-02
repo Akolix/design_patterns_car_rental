@@ -51,6 +51,6 @@ class ExtraKilometerDecorator extends RentalOptionsDecorator {
 
     @Override
     public String makeRentalAgreement() {
-        return rental_agreement.make_rental_agreement() + ", Extra Kilometer";
+        return "Extra Kilometer option added";
     }
 }
