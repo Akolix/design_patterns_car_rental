@@ -10,14 +10,14 @@ public class CarFactory {
     static final List<Car> createdCars = new ArrayList<>();
     static final Map<String, Integer> carTypeCounts = new HashMap<>();
 
-    public static Car createCar(String type, String brand, String model, double dailyRate, double pricePerKm, int freeKm,double deposit) {
+    public static Car createCar(String type, String brand, String model, double dailyRate, double pricePerKm, int freeKm,double deposit, double odometer) {
         Car car;
         if (type.equalsIgnoreCase("luxury")) {
-            car = new LuxuryCar(brand, model, dailyRate, pricePerKm, freeKm, deposit);
+            car = new LuxuryCar(brand, model, dailyRate, pricePerKm, freeKm, deposit, odometer);
         } else if (type.equalsIgnoreCase("economy")) {
-            car = new EconomyCar(brand, model, dailyRate, pricePerKm, freeKm, deposit);
+            car = new EconomyCar(brand, model,dailyRate,pricePerKm,freeKm,deposit,odometer);
         } else if (type.equalsIgnoreCase("standard")) {
-            car = new StandardCar(brand, model, dailyRate, pricePerKm, freeKm, deposit);
+            car = new StandardCar(brand, model, dailyRate, pricePerKm, freeKm, deposit, odometer);
         } else {
             throw new IllegalArgumentException("Invalid car type: " + type);
         }

@@ -5,12 +5,8 @@ abstract class RentalOptionsDecorator {
         this.rental_agreement = rental_agreement;
     }
 
-//    public abstract String get_description();
+    public abstract double calculateTotalCost();
 
-    public double calculateTotalCost() {
-
-        return 20;
-    }
-
-//    public abstract String getDescription();
+    public abstract String makeRentalAgreement();
 }
+
