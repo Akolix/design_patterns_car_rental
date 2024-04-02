@@ -17,6 +17,7 @@ class EconomyCar extends Car implements CarInterface {
     private double price_per_km;
     private int free_km;
     private double odometer;
+    private double deposit;
 
     public EconomyCar(String brand, String model, double daily_rate, double price_per_km, int free_km, double deposit, double odometer) {
         super("Economy");
@@ -26,6 +27,7 @@ class EconomyCar extends Car implements CarInterface {
         this.price_per_km = price_per_km;
         this.free_km = free_km;
         this.odometer = odometer;
+        this.deposit = deposit;
     }
 
     @Override
@@ -86,6 +88,11 @@ class EconomyCar extends Car implements CarInterface {
     @Override
     public void assemble() {
         System.out.println("Assembling EconomyCar");
+    }
+
+    @Override
+    public double getDeposit() {
+        return deposit;
     }
 //
 //    @Override

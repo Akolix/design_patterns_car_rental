@@ -93,6 +93,7 @@ class StandardCar extends Car implements CarInterface {
         System.out.println("Assembling StandardCar");
     }
 
+    @Override
     public double getDeposit() {
         return deposit;
     }

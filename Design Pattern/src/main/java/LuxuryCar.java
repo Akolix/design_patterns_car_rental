@@ -5,6 +5,7 @@ public class LuxuryCar extends Car {
     private double price_per_km;
     private int free_km;
     private double odometer;
+    private double deposit;
 
     public LuxuryCar(String brand, String model, double daily_rate, double price_per_km, int free_km, double deposit, double odometer) {
         super("luxury");
@@ -14,6 +15,7 @@ public class LuxuryCar extends Car {
         this.price_per_km = price_per_km;
         this.free_km = free_km;
         this.odometer = odometer;
+        this.deposit = deposit;
     }
 
     @Override
@@ -72,6 +74,9 @@ public class LuxuryCar extends Car {
         this.free_km = free_km;
     }
 
-
+    @Override
+    public double getDeposit() {
+        return deposit;
+    }
 
 }

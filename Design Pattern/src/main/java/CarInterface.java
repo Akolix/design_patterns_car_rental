@@ -5,4 +5,5 @@ public interface CarInterface {
     double getDaily_rate();
     String getBrand();
     String getModel();
+    double getDeposit();
 }

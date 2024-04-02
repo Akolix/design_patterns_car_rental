@@ -47,15 +47,18 @@ public class RentalAgreement implements RentalAgreementInterface
         return car.getDaily_rate() * duration;
     }
 
+    public double getDeposit()
+    {
+        return car.getDeposit();
+    }
+
     public double calculateTotalCost()
     {
-        double baseCost = car.getDaily_rate() * duration;
-
         double optionsCost = 0;
         for (RentalOptionsDecorator option : rentalOptions) {
             optionsCost += option.calculateTotalCost();
         }
 
-        return baseCost + optionsCost;
+        return optionsCost;
     }
 }

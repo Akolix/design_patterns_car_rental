@@ -2,6 +2,8 @@ public interface RentalAgreementInterface {
 
     double getBaseCost();
 
+    double getDeposit();
+
     int getDuration();
     double calculateTotalCost();
 
