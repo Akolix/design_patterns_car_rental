@@ -1,5 +1,7 @@
 public interface RentalAgreementInterface {
-//    String makeRentalAgreement();
+
+    double getBaseCost();
+
     int getDuration();
     double calculateTotalCost();
 
