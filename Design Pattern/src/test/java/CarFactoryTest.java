@@ -23,21 +23,21 @@ class CarFactoryTest {
 
     @Test
     void createLuxuryCar() {
-        Car luxuryCar = CarFactory.createCar("luxury", "Rolls Royce", "Spectre", 1000, 2, 50, 200);
+        Car luxuryCar = CarFactory.createCar("luxury", "Rolls Royce", "Spectre", 1000, 2, 50, 200, 100);
         assertNotNull(luxuryCar);
         assertTrue(luxuryCar instanceof LuxuryCar);
     }
 
     @Test
     void createEconomyCar() {
-        Car economyCar = CarFactory.createCar("economy", "Toyota", "Prius", 50, 0.20, 250, 200);
+        Car economyCar = CarFactory.createCar("economy", "Toyota", "Prius", 50, 0.20, 250, 200, 100);
         assertNotNull(economyCar);
         assertTrue(economyCar instanceof EconomyCar);
     }
 
     @Test
     void createStandardCar() {
-        Car standardCar = CarFactory.createCar("standard", "Ford", "Mondeo", 27, 0.39, 150, 200);
+        Car standardCar = CarFactory.createCar("standard", "Ford", "Mondeo", 27, 0.39, 150, 200, 100);
         assertNotNull(standardCar);
         assertTrue(standardCar instanceof StandardCar);
     }
@@ -45,7 +45,7 @@ class CarFactoryTest {
     @Test
     void createFaultyCar() {
         assertThrows(IllegalArgumentException.class, () -> {
-            Car invalidCar = CarFactory.createCar("invalid car type", "Invalid Brand", "Invalid Model", 0, 0, 0, 0);
+            Car invalidCar = CarFactory.createCar("invalid car type", "Invalid Brand", "Invalid Model", 0, 0, 0, 0, 100);
         });
     }
 
@@ -57,8 +57,9 @@ class CarFactoryTest {
         double pricePerKm = 0.39;
         int freeKm = 150;
         double deposit = 200;
+        double odometer = 100;
 
-        Car standardCar = CarFactory.createCar("standard", brand, model, dailyRate, pricePerKm, freeKm, deposit);
+        Car standardCar = CarFactory.createCar("standard", brand, model, dailyRate, pricePerKm, freeKm, deposit, odometer);
 
         assertNotNull(standardCar);
 
@@ -79,8 +80,9 @@ class CarFactoryTest {
         double pricePerKm = 2;
         int freeKm = 50;
         double deposit = 2000;
+        double odometer = 100;
 
-        Car luxuryCar = CarFactory.createCar("luxury", brand, model, dailyRate, pricePerKm, freeKm, deposit);
+        Car luxuryCar = CarFactory.createCar("luxury", brand, model, dailyRate, pricePerKm, freeKm, deposit, odometer);
 
         assertNotNull(luxuryCar);
 
@@ -101,8 +103,9 @@ class CarFactoryTest {
         double pricePerKm = 0.20;
         int freeKm = 250;
         double deposit = 200;
+        double odometer = 100;
 
-        Car economyCar = CarFactory.createCar("economy", brand, model, dailyRate, pricePerKm, freeKm, deposit);
+        Car economyCar = CarFactory.createCar("economy", brand, model, dailyRate, pricePerKm, freeKm, deposit, odometer);
 
         assertNotNull(economyCar);
 
@@ -117,19 +120,19 @@ class CarFactoryTest {
 
     @Test
     void countAllCars() {
-        CarFactory.createCar("luxury", "Rolls Royce", "Spectre", 1000, 2, 50, 2000);
-        CarFactory.createCar("economy", "Toyota", "Prius", 50, 0.20, 250, 200);
-        CarFactory.createCar("standard", "Ford", "Mondeo", 27, 0.39, 150, 200);
+        CarFactory.createCar("luxury", "Rolls Royce", "Spectre", 1000, 2, 50, 2000, 100);
+        CarFactory.createCar("economy", "Toyota", "Prius", 50, 0.20, 250, 200, 100);
+        CarFactory.createCar("standard", "Ford", "Mondeo", 27, 0.39, 150, 200, 100);
 
         assertEquals(3, CarFactory.countAllCars());
     }
 
     @Test
     void countCarsPerType() {
-        CarFactory.createCar("luxury", "Rolls Royce", "Spectre", 1000, 2, 50, 2000);
-        CarFactory.createCar("economy", "Toyota", "Prius", 50, 0.20, 250, 200);
-        CarFactory.createCar("standard", "Ford", "Mondeo", 27, 0.39, 150, 200);
-        CarFactory.createCar("economy", "Kia", "Rio", 55, 0.3, 150, 200);
+        CarFactory.createCar("luxury", "Rolls Royce", "Spectre", 1000, 2, 50, 2000, 100);
+        CarFactory.createCar("economy", "Toyota", "Prius", 50, 0.20, 250, 200, 100);
+        CarFactory.createCar("standard", "Ford", "Mondeo", 27, 0.39, 150, 200, 100);
+        CarFactory.createCar("economy", "Kia", "Rio", 55, 0.3, 150, 200, 100);
 
         Map<String, Integer> carCounts = CarFactory.countCarsPerType();
         assertEquals(1, carCounts.get("luxury"));
@@ -139,11 +142,11 @@ class CarFactoryTest {
 
     @Test
     void removeCar() {
-        CarFactory.createCar("luxury", "Rolls Royce", "Spectre", 1000, 2, 50, 2000);
-        CarFactory.createCar("luxury", "Rolls Royce", "Phantom", 750, 1.25, 75, 1500);
-        CarFactory.createCar("economy", "Toyota", "Prius", 50, 0.20, 250, 200);
-        CarFactory.createCar("standard", "Ford", "Mondeo", 27, 0.39, 150, 200);
-        CarFactory.createCar("economy", "Kia", "Rio", 55, 0.3, 150, 200);
+        CarFactory.createCar("luxury", "Rolls Royce", "Spectre", 1000, 2, 50, 2000, 100);
+        CarFactory.createCar("luxury", "Rolls Royce", "Phantom", 750, 1.25, 75, 1500, 100);
+        CarFactory.createCar("economy", "Toyota", "Prius", 50, 0.20, 250, 200, 100);
+        CarFactory.createCar("standard", "Ford", "Mondeo", 27, 0.39, 150, 200, 100);
+        CarFactory.createCar("economy", "Kia", "Rio", 55, 0.3, 150, 200, 100);
 
         assertEquals(5, CarFactory.countAllCars());
 
@@ -157,8 +160,8 @@ class CarFactoryTest {
 
     @Test
     void makeTwoOfTheSameCarThenRemoveOne() {
-        CarFactory.createCar("luxury", "Rolls Royce", "Spectre", 1000, 2, 50, 2000);
-        CarFactory.createCar("luxury", "Rolls Royce", "Spectre", 1000, 2, 50, 2000);
+        CarFactory.createCar("luxury", "Rolls Royce", "Spectre", 1000, 2, 50, 2000, 100);
+        CarFactory.createCar("luxury", "Rolls Royce", "Spectre", 1000, 2, 50, 2000, 100);
 
         assertEquals(2, CarFactory.countAllCars());
 
@@ -169,8 +172,8 @@ class CarFactoryTest {
 
     @Test
     void makeTwoOfTheSameCarThenRemoveThemBoth() {
-        CarFactory.createCar("luxury", "Rolls Royce", "Spectre", 1000, 2, 50, 2000);
-        CarFactory.createCar("luxury", "Rolls Royce", "Spectre", 1000, 2, 50, 2000);
+        CarFactory.createCar("luxury", "Rolls Royce", "Spectre", 1000, 2, 50, 2000, 100);
+        CarFactory.createCar("luxury", "Rolls Royce", "Spectre", 1000, 2, 50, 2000, 100);
 
         assertEquals(2, CarFactory.countAllCars());
 

@@ -18,8 +18,10 @@ class StandardCar extends Car implements CarInterface {
     private int free_km;
     private double deposit;
 
+    private  double odometer;
+
     //String type, String brand, String model, double daily_rate, double price_per_km, int free_km
-    public StandardCar(String brand, String model, double daily_rate, double price_per_km, int free_km,double deposit) {
+    public StandardCar(String brand, String model, double daily_rate, double price_per_km, int free_km,double deposit, double odometer) {
         super("Standard");
         this.brand = brand;
         this.model = model;
@@ -27,6 +29,7 @@ class StandardCar extends Car implements CarInterface {
         this.price_per_km = price_per_km;
         this.free_km = free_km;
         this.deposit = deposit;
+        this.odometer = odometer;
     }
 
     @Override

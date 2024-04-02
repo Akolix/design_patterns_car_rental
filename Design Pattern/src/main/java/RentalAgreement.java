@@ -32,10 +32,6 @@ public class RentalAgreement implements RentalAgreementInterface {
         return baseCost + optionsCost;
     }
 
-//    @Override
-//    public String getDescription() {
-//        return null;
-//    }
 
     @Override
     public double calculate_total_cost() {
