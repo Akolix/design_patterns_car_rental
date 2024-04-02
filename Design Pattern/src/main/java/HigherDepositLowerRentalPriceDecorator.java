@@ -8,7 +8,6 @@ class HigherDepositLowerRentalPrice extends RentalOptionsDecorator {
 
     @Override
     public double calculateTotalCost() {
-        System.out.println(rental_agreement.getBaseCost());
         double baseCost = rental_agreement.getBaseCost();
         double increasedDeposit = baseCost * DEPOSIT_INCREASE_PERCENTAGE;
         double discountedRate = baseCost * (1 - DISCOUNT_PERCENTAGE); // Apply 10% discount
