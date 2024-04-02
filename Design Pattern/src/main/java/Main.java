@@ -26,17 +26,18 @@ public class Main {
         RentalOptionsDecorator childSeatOption = new ChildSeatDecorator(agreement1);
         RentalOptionsDecorator towBarOption = new TowBarDecorator(agreement2);
         RentalOptionsDecorator higherDepositLowerRentalPrice = new HigherDepositLowerRentalPrice(agreement2);
+        RentalOptionsDecorator lowerDepositHigherRental = new LowerDepositHigherRentalPrice(agreement2);
 
 //        agreement1.addOptionsToAgreement(childSeatOption);
 //        agreement1.addOptionsToAgreement(higherDepositLowerRentalPrice);
         agreement2.addOptionsToAgreement(childSeatOption);
         agreement2.addOptionsToAgreement(towBarOption);
-        agreement2.addOptionsToAgreement(higherDepositLowerRentalPrice);
+        agreement2.addOptionsToAgreement(lowerDepositHigherRental);
 
 //        System.out.println(agreement1.make_rental_agreement());
 //        System.out.println(agreement1.calculateTotalCost());
 
-        System.out.println(agreement2.getDeposit());
+//        System.out.println(agreement2.getDeposit());
         System.out.println(agreement2.make_rental_agreement());
         System.out.println(agreement2.calculateTotalCost());
     }

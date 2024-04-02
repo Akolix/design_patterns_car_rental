@@ -12,12 +12,6 @@ class HigherDepositLowerRentalPrice extends RentalOptionsDecorator {
         double deposit = rental_agreement.getDeposit();
         double increasedDeposit = deposit * DEPOSIT_INCREASE_PERCENTAGE;
         double discountedRate = baseCost * (1 - DISCOUNT_PERCENTAGE); // Apply 10% discount
-//        System.out.println("Basecost: " + baseCost);
-//        System.out.println("deposit:" + deposit);
-//        System.out.println("Increased despot" + increasedDeposit);
-//        System.out.println("discount" + discountedRate);
-        System.out.println(increasedDeposit);
-        System.out.println(discountedRate);
         return increasedDeposit + discountedRate; // Return the maximum of increased cost or discounted rate
     }
 
