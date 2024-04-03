@@ -1,8 +1,9 @@
 public class PrivateUserPricingStrategy implements PricingStrategy {
     @Override
-    public double calculateCost(double dailyRate, int duration) {
-        double rentalCost = dailyRate;
-        return rentalCost;
+    public double calculateCost(double rentalCost, int duration) {
+        double adjustedCost = rentalCost;
+        PricingStrategy selectedStrategy = selectStrategy(duration);
+        return selectedStrategy.calculateCost(adjustedCost, duration);
     }
 
     @Override

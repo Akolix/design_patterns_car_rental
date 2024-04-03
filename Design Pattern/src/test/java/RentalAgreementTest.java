@@ -8,24 +8,24 @@ class RentalAgreementTest {
 
     @Test
     void make_rental_agreement_Company_Daily_Standard() {
-        CarInterface car = new LuxuryCar("Rolls Royce", "Spectre", 1000, 2, 50, 2000, 789);
+        CarInterface car = new StandardCar("Ford", "Mondeo", 27, 0.39, 150, 200, 100);
         Customer customer = new Customer("John", "Doe", "Main Avenue, 123", "0612345789", "john.doe@example.com", true);
 
         RentalAgreement rentalAgreement = new RentalAgreement(car, 5, customer);
 
-        assertEquals("Rental agreement: John Doe, 5 days, LuxuryCar", rentalAgreement.make_rental_agreement());
-        assertEquals(6132.23, rentalAgreement.calculateTotalCost());
+        assertEquals("Rental agreement: John Doe, 5 days, StandardCar", rentalAgreement.make_rental_agreement());
+        assertEquals(311.57, rentalAgreement.calculateTotalCost());
     }
 
     @Test
     void make_rental_agreement_Company_Weeky_Economy() {
-        CarInterface car = new LuxuryCar("Rolls Royce", "Spectre", 1000, 2, 50, 2000, 789);
+        CarInterface car = new EconomyCar("Toyota", "Prius", 50, 0.20, 250, 200, 100);
         Customer customer = new Customer("John", "Doe", "Main Avenue, 123", "0612345789", "john.doe@example.com", true);
 
         RentalAgreement rentalAgreement = new RentalAgreement(car, 12, customer);
 
-        assertEquals("Rental agreement: John Doe, 12 days, LuxuryCar", rentalAgreement.make_rental_agreement());
-        assertEquals(11421.49, rentalAgreement.calculateTotalCost());
+        assertEquals("Rental agreement: John Doe, 12 days, EconomyCar", rentalAgreement.make_rental_agreement());
+        assertEquals(671.07, rentalAgreement.calculateTotalCost());
     }
 
     @Test
@@ -40,45 +40,83 @@ class RentalAgreementTest {
     }
 
     @Test
-    void getDuration() {
+    void make_rental_agreement_Private_Daily_Standard() {
+        CarInterface car = new StandardCar("Ford", "Mondeo", 27, 0.39, 150, 200, 100);
+        Customer customer = new Customer("John", "Doe", "Main Avenue, 123", "0612345789", "john.doe@example.com", false);
 
+        RentalAgreement rentalAgreement = new RentalAgreement(car, 5, customer);
+
+        assertEquals("Rental agreement: John Doe, 5 days, StandardCar", rentalAgreement.make_rental_agreement());
+        assertEquals(335.00, rentalAgreement.calculateTotalCost());
     }
 
     @Test
-    void makeRentalAgreementWithinBoundaries() {
+    void make_rental_agreement_Private_Weekly_Economy() {
+        CarInterface car = new EconomyCar("Toyota", "Prius", 50, 0.20, 250, 200, 100);
+        Customer customer = new Customer("John", "Doe", "Main Avenue, 123", "0612345789", "john.doe@example.com", false);
 
+        RentalAgreement rentalAgreement = new RentalAgreement(car, 12, customer);
+
+        assertEquals("Rental agreement: John Doe, 12 days, EconomyCar", rentalAgreement.make_rental_agreement());
+        assertEquals(770.00, rentalAgreement.calculateTotalCost());
     }
 
     @Test
-    void makeRentalAgreementWithFaultyDuration() {
+    void make_rental_agreement_Private_Monthly_Luxury() {
+        CarInterface car = new LuxuryCar("Rolls Royce", "Spectre", 1000, 2, 50, 2000, 789);
+        Customer customer = new Customer("John", "Doe", "Main Avenue, 123", "0612345789", "john.doe@example.com", false);
 
+        RentalAgreement rentalAgreement = new RentalAgreement(car, 41, customer);
+
+        assertEquals("Rental agreement: John Doe, 41 days, LuxuryCar", rentalAgreement.make_rental_agreement());
+        assertEquals(37670.00, rentalAgreement.calculateTotalCost());
     }
 
     @Test
-    void calculateTotalCostForStandardCarRentedForOneDayWithNoOptions() {
+    void make_rental_agreement_Private_Monthly_Luxury_With_Options() {
+        CarInterface car = new LuxuryCar("Rolls Royce", "Spectre", 1000, 2, 50, 2000, 789);
+        Customer customer = new Customer("John", "Doe", "Main Avenue, 123", "0612345789", "john.doe@example.com", false);
 
-    }
-    @Test
-    void calculateTotalCostForStandardCarRentedForOneDayWithOptions() {
+        RentalAgreement rentalAgreement = new RentalAgreement(car, 41, customer);
 
-    }
-
-    @Test
-    void calculateTotalCostForEconomyCarRentedForOneDayWithNoOptions() {
-
-    }
-    @Test
-    void calculateTotalCostForEconomyCarRentedForOneDayWithOptions() {
-
+        assertEquals("Rental agreement: John Doe, 41 days, LuxuryCar", rentalAgreement.make_rental_agreement());
+        assertEquals(37670.00, rentalAgreement.calculateTotalCost());
     }
 
     @Test
-    void calculateTotalCostForLuxuryCarRentedForOneDayWithNoOptions() {
+    void make_rental_agreement_Private_Daily_Standard_With_Options() {
+        CarInterface car = new StandardCar("Ford", "Mondeo", 27, 0.39, 150, 200, 100);
+        Customer customer = new Customer("John", "Doe", "Main Avenue, 123", "0612345789", "john.doe@example.com", false);
 
+        RentalAgreement rentalAgreement = new RentalAgreement(car, 5, customer);
+
+        // Add options decorators
+        RentalOptionsDecorator childSeatOption = new ChildSeatDecorator(rentalAgreement);
+        RentalOptionsDecorator towBarOption = new TowBarDecorator(rentalAgreement);
+
+        rentalAgreement.addOptionsToAgreement(childSeatOption);
+        rentalAgreement.addOptionsToAgreement(towBarOption);
+
+        assertEquals("Rental agreement: John Doe, 5 days, StandardCar with the following options:\n- Child Seat option added\n- Tow Bar option added", rentalAgreement.make_rental_agreement());
+        assertEquals(395, rentalAgreement.calculateTotalCost());
     }
-    @Test
-    void calculateTotalCostForLuxuryCarRentedForOneDayWithOptions() {
 
+    @Test
+    void make_rental_agreement_Company_Daily_Standard_With_Options() {
+        CarInterface car = new StandardCar("Ford", "Mondeo", 27, 0.39, 150, 200, 100);
+        Customer customer = new Customer("John", "Doe", "Main Avenue, 123", "0612345789", "john.doe@example.com", true);
+
+        RentalAgreement rentalAgreement = new RentalAgreement(car, 5, customer);
+
+        // Add options decorators
+        RentalOptionsDecorator childSeatOption = new ChildSeatDecorator(rentalAgreement);
+        RentalOptionsDecorator towBarOption = new TowBarDecorator(rentalAgreement);
+
+        rentalAgreement.addOptionsToAgreement(childSeatOption);
+        rentalAgreement.addOptionsToAgreement(towBarOption);
+
+        assertEquals("Rental agreement: John Doe, 5 days, StandardCar with the following options:\n- Child Seat option added\n- Tow Bar option added", rentalAgreement.make_rental_agreement());
+        assertEquals(371.57, rentalAgreement.calculateTotalCost());
     }
 
 }
