@@ -1,9 +1,9 @@
 public class CompanyPricingStrategy implements PricingStrategy {
-    static final double TAX_RATE = 0.21;
+    static final double TAX_RATE = 1.21;
 
     @Override
     public double calculateCost(double rentalCost, int duration) {
-        double adjustedCost = rentalCost * TAX_RATE;
+        double adjustedCost = rentalCost / TAX_RATE;
 
         PricingStrategy selectedStrategy = selectStrategy(duration);
 
