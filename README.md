@@ -19,5 +19,5 @@ In this application we were free to choose the design patterns which we wanted w
     The strategy patterns is used finally to calculate the rent for the whole duration of the rental, it checks if the customer is a company or a private user, which then leads to a difference in taxation.
 ## How to run the project
 - Clone the repository;
-- Navigate to the SRC folder, if the SRC and Test folder are not marked correctly please right click them and assign them correspondingly.
+- Navigate to the Java folder, if the Java and Test folder are not marked correctly please right click them and assign them correspondingly.
 - The test cases can be used to check if the application is working accordingly.
