@@ -1,19 +1,24 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class RentalAgreement implements RentalAgreementInterface
-{
+public class RentalAgreement implements RentalAgreementInterface {
     private CarInterface car;
     private int duration;
-    private String customer;
+    private Customer customer;
     private List<RentalOptionsDecorator> rentalOptions;
+    private PricingStrategy pricingStrategy;
 
-    public RentalAgreement(CarInterface car, int duration, String customer)
-    {
+    public RentalAgreement(CarInterface car, int duration, Customer customer) {
         this.car = car;
         this.duration = duration;
         this.customer = customer;
         this.rentalOptions = new ArrayList<>();
+
+        if (customer.isCompany()) {
+            this.pricingStrategy = new CompanyPricingStrategy().selectStrategy(duration);
+        } else {
+            this.pricingStrategy = new PrivateUserPricingStrategy().selectStrategy(duration);
+        }
     }
 
     public void addOptionsToAgreement(RentalOptionsDecorator option)
@@ -23,7 +28,7 @@ public class RentalAgreement implements RentalAgreementInterface
 
     public String make_rental_agreement()
     {
-        StringBuilder agreement = new StringBuilder("Rental agreement: " + customer + ", " + duration + " days, " + car.getClass().getSimpleName());
+        StringBuilder agreement = new StringBuilder("Rental agreement: " + customer.getFirstName() + " " + customer.getLastName() + ", " + duration + " days, " + car.getClass().getSimpleName());
 
         if (!rentalOptions.isEmpty())
         {
@@ -33,13 +38,20 @@ public class RentalAgreement implements RentalAgreementInterface
                 agreement.append("\n- ").append(option.makeRentalAgreement());
             }
         }
-
         return agreement.toString();
     }
 
     public int getDuration()
     {
         return duration;
+    }
+
+    public PricingStrategy getPricingStrategy() {
+        return pricingStrategy;
+    }
+
+    public void setPricingStrategy(PricingStrategy pricingStrategy) {
+        this.pricingStrategy = pricingStrategy;
     }
 
     public double getBaseCost()
@@ -51,19 +63,22 @@ public class RentalAgreement implements RentalAgreementInterface
     {
         return car.getDeposit();
     }
-
+  
     public CarInterface getCar()
     {
         return car;
     }
 
-    public double calculateTotalCost()
-    {
-        double optionsCost = 0;
-        for (RentalOptionsDecorator option : rentalOptions) {
-            optionsCost += option.calculateTotalCost();
+    public double calculateTotalCost() {
+        // Determine the pricing strategy based on the customer type
+        PricingStrategy selectedStrategy;
+        if (customer.isCompany()) {
+            selectedStrategy = new CompanyPricingStrategy();
+        } else {
+            selectedStrategy = new PrivateUserPricingStrategy();
         }
 
-        return optionsCost;
-    }
+        double rentalCost = selectedStrategy.calculateCost(car.getDaily_rate(), duration);
+
+    
 }
