@@ -7,6 +7,8 @@ public interface RentalAgreementInterface {
     int getDuration();
     double calculateTotalCost();
 
+    CarInterface getCar();
+
     String make_rental_agreement();
 
 }
