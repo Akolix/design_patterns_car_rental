@@ -63,22 +63,26 @@ public class RentalAgreement implements RentalAgreementInterface {
     {
         return car.getDeposit();
     }
-  
+
     public CarInterface getCar()
     {
         return car;
     }
 
-    public double calculateTotalCost() {
+    public double calculateTotalCost()
+    {
         // Determine the pricing strategy based on the customer type
         PricingStrategy selectedStrategy;
-        if (customer.isCompany()) {
+        if (customer.isCompany())
+        {
             selectedStrategy = new CompanyPricingStrategy();
-        } else {
+        } else
+        {
             selectedStrategy = new PrivateUserPricingStrategy();
         }
 
         double rentalCost = selectedStrategy.calculateCost(car.getDaily_rate(), duration);
 
-    
+        return rentalCost;
+    }
 }
