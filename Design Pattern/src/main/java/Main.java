@@ -17,6 +17,7 @@ public class Main {
         RentalOptionsDecorator towBarOption = new TowBarDecorator(agreement2);
         RentalOptionsDecorator higherDepositLowerRentalPrice = new HigherDepositLowerRentalPrice(agreement2);
         RentalOptionsDecorator lowerDepositHigherRental = new LowerDepositHigherRentalPrice(agreement2);
+        RentalOptionsDecorator extraKM = new ExtraKilometerDecorator(agreement1);
 
         agreement2.addOptionsToAgreement(childSeatOption);
         agreement2.addOptionsToAgreement(towBarOption);
@@ -28,5 +29,6 @@ public class Main {
 
         System.out.println(agreement2.make_rental_agreement());
         System.out.println(agreement2.calculateTotalCost());
+
     }
 }
