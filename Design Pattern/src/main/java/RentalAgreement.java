@@ -52,6 +52,11 @@ public class RentalAgreement implements RentalAgreementInterface
         return car.getDeposit();
     }
 
+    public CarInterface getCar()
+    {
+        return car;
+    }
+
     public double calculateTotalCost()
     {
         double optionsCost = 0;
