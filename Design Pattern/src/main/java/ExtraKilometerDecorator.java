@@ -12,8 +12,8 @@ class ExtraKilometerDecorator extends RentalOptionsDecorator
     public double calculateTotalCost()
     {
         double extraKmCost = 0;
-
         CarInterface rentedCar = rental_agreement.getCar();
+
         if (rentedCar != null)
         {
             if (rentedCar.getType().equalsIgnoreCase("standard") || rentedCar.getType().equalsIgnoreCase("economy"))
@@ -23,6 +23,10 @@ class ExtraKilometerDecorator extends RentalOptionsDecorator
             {
                 extraKmCost = LUXURY_COST;
             }
+        }
+        else
+        {
+            throw new RuntimeException("There are no cars with the specified type.");
         }
 
         return extraKmCost;

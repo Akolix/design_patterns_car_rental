@@ -63,7 +63,7 @@ public class RentalAgreement implements RentalAgreementInterface {
     {
         return car.getDeposit();
     }
-  
+
     public CarInterface getCar()
     {
         return car;
@@ -87,5 +87,6 @@ public class RentalAgreement implements RentalAgreementInterface {
         double totalRentalCost = Math.round((rentalCost + optionsCost + car.getDeposit()) * 100.0) / 100.0;
 
         return totalRentalCost;
+    
     }
 }
