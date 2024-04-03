@@ -25,6 +25,6 @@ class TowBarDecorator extends RentalOptionsDecorator {
 
     @Override
     public String makeRentalAgreement() {
-        return "Tow Bar  option added";
+        return "Tow Bar option added";
     }
 }

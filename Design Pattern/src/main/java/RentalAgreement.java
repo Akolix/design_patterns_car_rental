@@ -69,20 +69,24 @@ public class RentalAgreement implements RentalAgreementInterface {
         return car;
     }
 
-    public double calculateTotalCost()
-    {
+    public double calculateTotalCost() {
         // Determine the pricing strategy based on the customer type
         PricingStrategy selectedStrategy;
-        if (customer.isCompany())
-        {
+        if (customer.isCompany()) {
             selectedStrategy = new CompanyPricingStrategy();
-        } else
-        {
+        } else {
             selectedStrategy = new PrivateUserPricingStrategy();
         }
 
         double rentalCost = selectedStrategy.calculateCost(car.getDaily_rate(), duration);
 
-        return rentalCost;
+        double optionsCost = 0;
+        for (RentalOptionsDecorator option : rentalOptions) {
+            optionsCost += option.calculateTotalCost();
+        }
+        double totalRentalCost = Math.round((rentalCost + optionsCost + car.getDeposit()) * 100.0) / 100.0;
+
+        return totalRentalCost;
+    
     }
 }
