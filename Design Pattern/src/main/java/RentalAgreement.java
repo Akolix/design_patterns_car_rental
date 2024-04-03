@@ -80,5 +80,12 @@ public class RentalAgreement implements RentalAgreementInterface {
 
         double rentalCost = selectedStrategy.calculateCost(car.getDaily_rate(), duration);
 
-    
+        double optionsCost = 0;
+        for (RentalOptionsDecorator option : rentalOptions) {
+            optionsCost += option.calculateTotalCost();
+        }
+        double totalRentalCost = Math.round((rentalCost + optionsCost + car.getDeposit()) * 100.0) / 100.0;
+
+        return totalRentalCost;
+    }
 }
