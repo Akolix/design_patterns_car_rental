@@ -73,7 +73,6 @@ public class RentalAgreement implements RentalAgreementInterface {
         return car;
     }
     public double calculateTotalCost() {
-        // Determine the pricing strategy based on the customer type
         PricingStrategy selectedStrategy;
         if (customer.isCompany()) {
             selectedStrategy = new CompanyPricingStrategy();

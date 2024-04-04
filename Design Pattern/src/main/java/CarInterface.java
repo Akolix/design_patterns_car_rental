@@ -8,5 +8,5 @@ public interface CarInterface {
     String getType();
     double getDeposit();
     int getFreeKm();
-    void setFreeKm(int doubledFreeKm);
+    void setFreeKm(int freeKm);
 }

@@ -2,7 +2,7 @@
     public abstract class Car implements CarInterface {
         public String type;
         private double deposit;
-        private int freeKm;
+        protected int freeKm;
 
         public Car(String type) {
             this.type = type;
@@ -21,14 +21,10 @@
         public String getModel(String model) {
             return model;
         }
-        public int getFreeKm(int freeKm) {
+        public int getFreeKm() {
             return freeKm;
         }
 
-        public int setFreeKm() {
-            return freeKm;
-        }
-        
         @Override
         public double getDeposit() {
             return deposit;
@@ -38,8 +34,8 @@
             this.deposit = deposit;
         }
 
-        public abstract int getFreeKm();
-
         @Override
-        public abstract void setFreeKm(int doubledFreeKm);
+        public void setFreeKm(int freeKm) {
+            this.freeKm = freeKm;
+        };
     }

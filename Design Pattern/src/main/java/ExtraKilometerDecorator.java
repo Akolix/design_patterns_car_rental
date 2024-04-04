@@ -157,7 +157,6 @@ public class ExtraKilometerDecorator extends RentalOptionsDecorator {
             int originalFreeKm = rentedCar.getFreeKm();
             int doubledFreeKm = originalFreeKm * 2;
 
-            // Update the free kilometers in the car object
             rentedCar.setFreeKm(doubledFreeKm);
 
             // Calculate extra kilometer cost based on car type

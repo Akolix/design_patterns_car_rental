@@ -118,8 +118,40 @@ class RentalAgreementTest {
 
         assertEquals("Rental agreement: John Doe, 5 days, StandardCar with the following options:\n- Extra Kilometer option added", rentalAgreement.make_rental_agreement());
         assertEquals(361.57, rentalAgreement.calculateTotalCost());
-//        assertEquals(300, rentalAgreement.getFreeKm());
         assertEquals(300, rentalAgreement.getCar().getFreeKm());
     }
 
+    @Test
+    void make_rental_agreement_Private_Weekly_Economy_With_Extra_Kilometer_Option() {
+        CarInterface car = new EconomyCar("Toyota", "Prius", 50, 0.20, 250, 200, 100);
+        Customer customer = new Customer("John", "Doe", "Main Avenue, 123", "0612345789", "john.doe@example.com", false);
+
+        RentalAgreement rentalAgreement = new RentalAgreement(car, 12, customer);
+
+        // Add options decorators
+        RentalOptionsDecorator extraKmOption = new ExtraKilometerDecorator(rentalAgreement);
+
+        rentalAgreement.addOptionsToAgreement(extraKmOption);
+
+        assertEquals("Rental agreement: John Doe, 12 days, EconomyCar with the following options:\n- Extra Kilometer option added", rentalAgreement.make_rental_agreement());
+        assertEquals(820, rentalAgreement.calculateTotalCost());
+        assertEquals(500, rentalAgreement.getCar().getFreeKm());
+    }
+
+    @Test
+    void make_rental_agreement_Private_Monthy_Luxury_With_Extra_Kilometer_Option() {
+        CarInterface car = new LuxuryCar("Rolls Royce", "Spectre", 1000, 2, 50, 2000, 789);
+        Customer customer = new Customer("John", "Doe", "Main Avenue, 123", "0612345789", "john.doe@example.com", false);
+
+        RentalAgreement rentalAgreement = new RentalAgreement(car, 41, customer);
+
+        // Add options decorators
+        RentalOptionsDecorator extraKmOption = new ExtraKilometerDecorator(rentalAgreement);
+
+        rentalAgreement.addOptionsToAgreement(extraKmOption);
+
+        assertEquals("Rental agreement: John Doe, 41 days, LuxuryCar with the following options:\n- Extra Kilometer option added", rentalAgreement.make_rental_agreement());
+        assertEquals(37920.00, rentalAgreement.calculateTotalCost());
+        assertEquals(100, rentalAgreement.getCar().getFreeKm());
+    }
 }
