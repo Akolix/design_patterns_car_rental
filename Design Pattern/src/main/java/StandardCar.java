@@ -80,14 +80,6 @@ class StandardCar extends Car implements CarInterface {
         this.price_per_km = price_per_km;
     }
 
-    public int getFree_km() {
-        return free_km;
-    }
-
-    public void setFree_km(int free_km) {
-        this.free_km = free_km;
-    }
-
     @Override
     public void assemble() {
         System.out.println("Assembling StandardCar");
@@ -98,6 +90,15 @@ class StandardCar extends Car implements CarInterface {
         return deposit;
     }
 
+    @Override
+    public int getFreeKm() {
+        return free_km;
+    }
+
+    @Override
+    public void setFreeKm(int doubledFreeKm) {
+
+    }
     public void setDeposit(double deposit) {
         this.deposit = deposit;
     }

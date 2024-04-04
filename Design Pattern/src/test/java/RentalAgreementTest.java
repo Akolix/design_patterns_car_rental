@@ -1,6 +1,5 @@
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -18,7 +17,7 @@ class RentalAgreementTest {
     }
 
     @Test
-    void make_rental_agreement_Company_Weeky_Economy() {
+    void make_rental_agreement_Company_Weekly_Economy() {
         CarInterface car = new EconomyCar("Toyota", "Prius", 50, 0.20, 250, 200, 100);
         Customer customer = new Customer("John", "Doe", "Main Avenue, 123", "0612345789", "john.doe@example.com", true);
 
@@ -29,7 +28,7 @@ class RentalAgreementTest {
     }
 
     @Test
-    void make_rental_agreement_Company_Monthy_Luxury() {
+    void make_rental_agreement_Company_Monthly_Luxury() {
         CarInterface car = new LuxuryCar("Rolls Royce", "Spectre", 1000, 2, 50, 2000, 789);
         Customer customer = new Customer("John", "Doe", "Main Avenue, 123", "0612345789", "john.doe@example.com", true);
 
@@ -79,8 +78,12 @@ class RentalAgreementTest {
 
         RentalAgreement rentalAgreement = new RentalAgreement(car, 41, customer);
 
-        assertEquals("Rental agreement: John Doe, 41 days, LuxuryCar", rentalAgreement.make_rental_agreement());
-        assertEquals(37670.00, rentalAgreement.calculateTotalCost());
+        RentalOptionsDecorator tripleAOption  = new TripleADecorator(rentalAgreement);
+
+        rentalAgreement.addOptionsToAgreement(tripleAOption);
+
+        assertEquals("Rental agreement: John Doe, 41 days, LuxuryCar with the following options:\n- AAA insurance Included", rentalAgreement.make_rental_agreement());
+        assertEquals(37870.00, rentalAgreement.calculateTotalCost());
     }
 
     @Test
@@ -102,21 +105,21 @@ class RentalAgreementTest {
     }
 
     @Test
-    void make_rental_agreement_Company_Daily_Standard_With_Options() {
+    void make_rental_agreement_Company_Daily_Standard_With_Extra_Kilometer_Option() {
         CarInterface car = new StandardCar("Ford", "Mondeo", 27, 0.39, 150, 200, 100);
         Customer customer = new Customer("John", "Doe", "Main Avenue, 123", "0612345789", "john.doe@example.com", true);
 
         RentalAgreement rentalAgreement = new RentalAgreement(car, 5, customer);
 
         // Add options decorators
-        RentalOptionsDecorator childSeatOption = new ChildSeatDecorator(rentalAgreement);
-        RentalOptionsDecorator towBarOption = new TowBarDecorator(rentalAgreement);
+        RentalOptionsDecorator extraKmOption = new ExtraKilometerDecorator(rentalAgreement);
 
-        rentalAgreement.addOptionsToAgreement(childSeatOption);
-        rentalAgreement.addOptionsToAgreement(towBarOption);
+        rentalAgreement.addOptionsToAgreement(extraKmOption);
 
-        assertEquals("Rental agreement: John Doe, 5 days, StandardCar with the following options:\n- Child Seat option added\n- Tow Bar option added", rentalAgreement.make_rental_agreement());
-        assertEquals(371.57, rentalAgreement.calculateTotalCost());
+        assertEquals("Rental agreement: John Doe, 5 days, StandardCar with the following options:\n- Extra Kilometer option added", rentalAgreement.make_rental_agreement());
+        assertEquals(361.57, rentalAgreement.calculateTotalCost());
+//        assertEquals(300, rentalAgreement.getFreeKm());
+        assertEquals(300, rentalAgreement.getCar().getFreeKm());
     }
 
 }

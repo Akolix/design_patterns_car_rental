@@ -70,13 +70,19 @@ public class LuxuryCar extends Car {
         return free_km;
     }
 
-    public void setFree_km(int free_km) {
-        this.free_km = free_km;
-    }
-
     @Override
     public double getDeposit() {
         return deposit;
+    }
+
+    @Override
+    public int getFreeKm() {
+        return free_km;
+    }
+
+    @Override
+    public void setFreeKm(int doubledFreeKm) {
+
     }
 
 }

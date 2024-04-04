@@ -64,11 +64,14 @@ public class RentalAgreement implements RentalAgreementInterface {
         return car.getDeposit();
     }
 
-    public CarInterface getCar()
-    {
-        return car;
+    public int getFreeKm() {
+        return car.getFreeKm();
     }
 
+    @Override
+    public CarInterface getCar() {
+        return car;
+    }
     public double calculateTotalCost() {
         // Determine the pricing strategy based on the customer type
         PricingStrategy selectedStrategy;
@@ -87,6 +90,5 @@ public class RentalAgreement implements RentalAgreementInterface {
         double totalRentalCost = Math.round((rentalCost + optionsCost + car.getDeposit()) * 100.0) / 100.0;
 
         return totalRentalCost;
-    
     }
 }

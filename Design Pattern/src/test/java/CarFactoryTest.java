@@ -69,7 +69,7 @@ class CarFactoryTest {
         assertEquals(model, ((StandardCar) standardCar).getModel());
         assertEquals(dailyRate, ((StandardCar) standardCar).getDaily_rate());
         assertEquals(pricePerKm, ((StandardCar) standardCar).getPrice_per_km());
-        assertEquals(freeKm, ((StandardCar) standardCar).getFree_km());
+        assertEquals(freeKm, ((StandardCar) standardCar).getFreeKm());
     }
 
     @Test

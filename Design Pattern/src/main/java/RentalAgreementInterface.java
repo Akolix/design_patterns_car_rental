@@ -6,4 +6,6 @@ public interface RentalAgreementInterface {
     CarInterface getCar();
     String make_rental_agreement();
 
+    int getFreeKm();
+
 }
