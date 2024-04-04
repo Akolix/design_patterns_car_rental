@@ -22,4 +22,4 @@ In this application we were free to choose the design patterns which we wanted w
 - Navigate to the Java folder, if the Java and Test folder are not marked correctly please right click them and assign them correspondingly.
 - The test cases can be used to check if the application is working accordingly.
 ### Class diagram
-![uml](Class Diagram.png)
+![ClassDiagram](ClassDiagram.png)
