@@ -41,6 +41,30 @@ public class RentalCompany
 
     public void returnRentedCar(RentalAgreement agreement) {
         Car car = (Car) agreement.getCar(); // Get the car associated with the rental agreement
+        double totalCost = calculateTotalCost(agreement);
+        System.out.printf("Total cost for returning the car: " + totalCost);
+
         CarFactory.returnCar(car); // Return the car to the CarFactory
+    }
+
+    private double calculateTotalCost(RentalAgreement agreement)
+    {
+        Car car = (Car) agreement.getCar();
+        int totalKmsDriven = agreement.calculateTotalKmsDriven();
+        int freeKms = car.getFree_km();
+        double pricePerKm = car.getPrice_per_km();
+        double deposit = car.getDeposit();
+        double rentalCost = agreement.calculateTotalCost();
+        System.out.println("Rentalcost: " + rentalCost);
+
+        double totalCost = Math.max(totalKmsDriven - freeKms, 0) * pricePerKm + rentalCost;
+
+        if (deposit > 0) {
+            totalCost = Math.max(0, totalCost - deposit);
+        }
+
+        totalCost = Math.round(totalCost * 100.0) / 100.0;
+
+        return totalCost;
     }
 }

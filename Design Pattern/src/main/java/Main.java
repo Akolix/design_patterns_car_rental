@@ -14,27 +14,30 @@ public class Main {
         economyCar.assemble();
 //        standardCar.assemble();
 
-        RentalAgreement agreement1 = new RentalAgreement(economyCar, 5, customer);
-//        RentalAgreement agreement2 = new RentalAgreement(luxuryCar, 10, customer);
+//        RentalAgreement agreement1 = new RentalAgreement(economyCar, 2, customer);
+        RentalAgreement agreement2 = new RentalAgreement(luxuryCar, 10, customer);
 
-        rentalCompany.rentOutCar(agreement1);
+        rentalCompany.rentOutCar(agreement2);
 
-        List<String> availableCars = CarFactory.listAllCars();
-        System.out.println("Available cars after return:");
-        for (String car : availableCars) {
-            System.out.println(car);
-        }
+//        List<String> availableCars = CarFactory.listAllCars();
+//        System.out.println("Available cars after return:");
+//        for (String car : availableCars) {
+//            System.out.println(car);
+//        }
 
-        rentalCompany.returnRentedCar(agreement1);
+        agreement2.setStartOdoMeter(0);
+        agreement2.setEndOdoMeter(200);
 
-        List<String> availableCars2 = CarFactory.listAllCars();
-        System.out.println("Available cars after return:");
-        for (String car : availableCars2) {
-            System.out.println(car);
-        }
+        rentalCompany.returnRentedCar(agreement2);
+
+//        List<String> availableCars2 = CarFactory.listAllCars();
+//        System.out.println("Available cars after return:");
+//        for (String car : availableCars2) {
+//            System.out.println(car);
+//        }
 
 
-//        RentalOptionsDecorator childSeatOption = new ChildSeatDecorator(agreement1);
+//        RentalOptionsDecorator childSeatOption = new ChildSeatDecorator(agreement2);
 //        RentalOptionsDecorator towBarOption = new TowBarDecorator(agreement2);
 //        RentalOptionsDecorator higherDepositLowerRentalPrice = new HigherDepositLowerRentalPrice(agreement2);
 //        RentalOptionsDecorator lowerDepositHigherRental = new LowerDepositHigherRentalPrice(agreement2);

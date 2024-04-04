@@ -1,7 +1,8 @@
-    import java.util.List;
     public abstract class Car implements CarInterface {
         public String type;
         private double deposit;
+        private int freeKm;
+        private double price_per_km;
 
         public Car(String type) {
             this.type = type;
@@ -20,6 +21,17 @@
             return model;
         }
 
+        @Override
+        public int getFree_km()
+        {
+            return freeKm;
+        }
+
+        @Override
+        public double getPrice_per_km()
+        {
+            return price_per_km;
+        }
 
         //Rental Meuk
         @Override
