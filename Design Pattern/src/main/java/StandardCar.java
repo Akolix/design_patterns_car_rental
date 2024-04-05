@@ -135,59 +135,32 @@ class StandardCar extends Car  {
         this.odometer = odometer;
         this.deposit = deposit;
     }
-
     @Override
     public String get_description() {
         return brand + " " + model;
     }
-
     @Override
     public String getType() {
         return "Standard";
     }
-    public void setType(String type) {
-        this.type = type;
-    }
-
     @Override
     public String getBrand() {
         return brand;
     }
-
-    public void setBrand(String brand) {
-        this.brand = brand;
-    }
-
     @Override
     public String getModel() {
         return model;
     }
-
-    public void setModel(String model) {
-        this.model = model;
-    }
-
     public double getDaily_rate() {
         return daily_rate;
     }
-
-    public void setDaily_rate(double daily_rate) {
-        this.daily_rate = daily_rate;
-    }
-
     public double getPrice_per_km() {
         return price_per_km;
     }
-
-    public void setPrice_per_km(double price_per_km) {
-        this.price_per_km = price_per_km;
-    }
-
     @Override
     public void assemble() {
         System.out.println("Assembling StandardCar");
     }
-
     @Override    public double getDeposit() {
         return deposit;
     }

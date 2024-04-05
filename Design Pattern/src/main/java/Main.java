@@ -27,7 +27,6 @@ public class Main {
         agreement2.addOptionsToAgreement(tripleAOption);
         agreement2.addOptionsToAgreement(extraKmDecorator);
 
-        // Automatically select pricing strategy based on duration
         agreement1.setPricingStrategy(agreement1.getPricingStrategy().selectStrategy(agreement1.getDuration()));
         agreement2.setPricingStrategy(agreement2.getPricingStrategy().selectStrategy(agreement2.getDuration()));
 

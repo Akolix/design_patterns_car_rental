@@ -93,7 +93,6 @@ class RentalAgreementTest {
 
         RentalAgreement rentalAgreement = new RentalAgreement(car, 5, customer);
 
-        // Add options decorators
         RentalOptionsDecorator childSeatOption = new ChildSeatDecorator(rentalAgreement);
         RentalOptionsDecorator towBarOption = new TowBarDecorator(rentalAgreement);
 
@@ -111,7 +110,6 @@ class RentalAgreementTest {
 
         RentalAgreement rentalAgreement = new RentalAgreement(car, 5, customer);
 
-        // Add options decorators
         RentalOptionsDecorator extraKmOption = new ExtraKilometerDecorator(rentalAgreement);
 
         rentalAgreement.addOptionsToAgreement(extraKmOption);
@@ -128,7 +126,6 @@ class RentalAgreementTest {
 
         RentalAgreement rentalAgreement = new RentalAgreement(car, 12, customer);
 
-        // Add options decorators
         RentalOptionsDecorator extraKmOption = new ExtraKilometerDecorator(rentalAgreement);
 
         rentalAgreement.addOptionsToAgreement(extraKmOption);
@@ -145,7 +142,6 @@ class RentalAgreementTest {
 
         RentalAgreement rentalAgreement = new RentalAgreement(car, 41, customer);
 
-        // Add options decorators
         RentalOptionsDecorator extraKmOption = new ExtraKilometerDecorator(rentalAgreement);
 
         rentalAgreement.addOptionsToAgreement(extraKmOption);

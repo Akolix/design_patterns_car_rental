@@ -19,8 +19,6 @@ class CarFactoryTest {
         CarFactory.carTypeCounts.clear(); // Clear the car type counts map
     }
 
-
-
     @Test
     void createLuxuryCar() {
         Car luxuryCar = CarFactory.createCar("luxury", "Rolls Royce", "Spectre", 1000, 2, 50, 200, 100);

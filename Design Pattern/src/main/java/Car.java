@@ -14,13 +14,6 @@
             return type;
         }
 
-        public String getBrand(String brand) {
-            return brand;
-        }
-
-        public String getModel(String model) {
-            return model;
-        }
         public int getFreeKm() {
             return freeKm;
         }
