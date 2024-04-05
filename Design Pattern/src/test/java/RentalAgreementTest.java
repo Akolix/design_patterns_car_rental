@@ -150,4 +150,40 @@ class RentalAgreementTest {
         assertEquals(37920.00, rentalAgreement.calculateTotalCost());
         assertEquals(100, rentalAgreement.getCar().getFreeKm());
     }
+
+    @Test
+    void make_rental_agreement_Private_Daily_Standard_With_Higher_Deposit_Lower_Rental() {
+        CarInterface car = new StandardCar("Ford", "Mondeo", 27, 0.39, 150, 200, 100);
+        Customer customer = new Customer("John", "Doe", "Main Avenue, 123", "0612345789", "john.doe@example.com", false);
+
+        RentalAgreement rentalAgreement = new RentalAgreement(car, 5, customer);
+
+        RentalOptionsDecorator higherDepositLowerRental = new HigherDepositLowerRentalPrice(rentalAgreement);
+
+        rentalAgreement.addOptionsToAgreement(higherDepositLowerRental);
+
+        assertEquals("Rental agreement: John Doe, 5 days, StandardCar with the following options:\n- Higher Deposit Lower Rental Price option added", rentalAgreement.make_rental_agreement());
+        assertEquals(421.5, rentalAgreement.calculateTotalCost());
+        assertEquals(24.3, car.getDailyRate());
+        assertEquals(300, rentalAgreement.getCar().getDeposit());
+    }
+
+    @Test
+    void make_rental_agreement_Private_Daily_Standard_With_Lower_Deposit_Higher_Rental() {
+        CarInterface car = new StandardCar("Ford", "Mondeo", 27, 0.39, 150, 200, 100);
+        Customer customer = new Customer("John", "Doe", "Main Avenue, 123", "0612345789", "john.doe@example.com", false);
+
+        RentalAgreement rentalAgreement = new RentalAgreement(car, 5, customer);
+
+        RentalOptionsDecorator lowerDepositHigherRental = new LowerDepositHigherRentalPrice(rentalAgreement);
+
+        rentalAgreement.addOptionsToAgreement(lowerDepositHigherRental);
+
+        assertEquals("Rental agreement: John Doe, 5 days, StandardCar with the following options:\n- Lower Deposit Higher Rental Price option added", rentalAgreement.make_rental_agreement());
+//        assertEquals(300.75, rentalAgreement.calculateTotalCost());
+//        assertEquals(33.75, car.getDailyRate());
+        assertEquals(132, rentalAgreement.getCar().getDeposit());
+    }
+
+
 }

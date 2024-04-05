@@ -13,17 +13,17 @@ class EconomyCar extends Car  {
     private String type;
     private String brand;
     private String model;
-    private double daily_rate;
+//    private double dailyRate;
     private double price_per_km;
     private double odometer;
-    private double deposit;
+//    private double deposit;
 
 
-    public EconomyCar(String brand, String model, double daily_rate, double price_per_km, int free_km, double deposit, double odometer) {
+    public EconomyCar(String brand, String model, double dailyRate, double price_per_km, int free_km, double deposit, double odometer) {
         super("Economy");
         this.brand = brand;
         this.model = model;
-        this.daily_rate = daily_rate;
+        this.dailyRate = dailyRate;
         this.price_per_km = price_per_km;
         this.freeKm = free_km;
         this.odometer = odometer;
@@ -46,9 +46,6 @@ class EconomyCar extends Car  {
     public String getModel() {
         return model;
     }
-    public double getDaily_rate() {
-        return daily_rate;
-    }
     public double getPrice_per_km() {
         return price_per_km;
     }
@@ -56,9 +53,5 @@ class EconomyCar extends Car  {
     public void assemble() {
         System.out.println("Assembling EconomyCar");
     }
-    @Override    public double getDeposit() {
-        return deposit;
-    }
-
 
 }

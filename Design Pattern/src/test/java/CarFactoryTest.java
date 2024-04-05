@@ -65,7 +65,7 @@ class CarFactoryTest {
 
         assertEquals(brand, ((StandardCar) standardCar).getBrand());
         assertEquals(model, ((StandardCar) standardCar).getModel());
-        assertEquals(dailyRate, ((StandardCar) standardCar).getDaily_rate());
+        assertEquals(dailyRate, ((StandardCar) standardCar).getDailyRate());
         assertEquals(pricePerKm, ((StandardCar) standardCar).getPrice_per_km());
         assertEquals(freeKm, ((StandardCar) standardCar).getFreeKm());
     }
@@ -88,7 +88,7 @@ class CarFactoryTest {
 
         assertEquals(brand, ((LuxuryCar) luxuryCar).getBrand());
         assertEquals(model, ((LuxuryCar) luxuryCar).getModel());
-        assertEquals(dailyRate, ((LuxuryCar) luxuryCar).getDaily_rate());
+        assertEquals(dailyRate, ((LuxuryCar) luxuryCar).getDailyRate());
         assertEquals(pricePerKm, ((LuxuryCar) luxuryCar).getPrice_per_km());
         assertEquals(freeKm, ((LuxuryCar) luxuryCar).getFreeKm());
     }
@@ -111,7 +111,7 @@ class CarFactoryTest {
 
         assertEquals(brand, ((EconomyCar) economyCar).getBrand());
         assertEquals(model, ((EconomyCar) economyCar).getModel());
-        assertEquals(dailyRate, ((EconomyCar) economyCar).getDaily_rate());
+        assertEquals(dailyRate, ((EconomyCar) economyCar).getDailyRate());
         assertEquals(pricePerKm, ((EconomyCar) economyCar).getPrice_per_km());
         assertEquals(freeKm, ((EconomyCar) economyCar).getFreeKm());
     }

@@ -56,7 +56,7 @@ public class RentalAgreement implements RentalAgreementInterface {
 
     public double getBaseCost()
     {
-        return car.getDaily_rate() * duration;
+        return car.getDailyRate() * duration;
     }
 
     public double getDeposit()
@@ -66,6 +66,11 @@ public class RentalAgreement implements RentalAgreementInterface {
 
     public int getFreeKm() {
         return car.getFreeKm();
+    }
+
+    @Override
+    public double getDailyRate() {
+        return car.getDailyRate();
     }
 
     @Override
@@ -80,12 +85,12 @@ public class RentalAgreement implements RentalAgreementInterface {
             selectedStrategy = new PrivateUserPricingStrategy();
         }
 
-        double rentalCost = selectedStrategy.calculateCost(car.getDaily_rate(), duration);
-
         double optionsCost = 0;
         for (RentalOptionsDecorator option : rentalOptions) {
             optionsCost += option.calculateTotalCost();
         }
+
+        double rentalCost = selectedStrategy.calculateCost(car.getDailyRate(), duration);
         double totalRentalCost = Math.round((rentalCost + optionsCost + car.getDeposit()) * 100.0) / 100.0;
 
         return totalRentalCost;

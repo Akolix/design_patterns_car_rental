@@ -1,34 +1,45 @@
-    import java.util.List;
-    public abstract class Car implements CarInterface {
+public abstract class Car implements CarInterface {
         public String type;
-        private double deposit;
+        protected double deposit;
         protected int freeKm;
+        protected double dailyRate;
 
         public Car(String type) {
             this.type = type;
             this.deposit = deposit;
             this.freeKm = freeKm;
+            this.dailyRate = dailyRate;
         }
 
         public String getType() {
             return type;
         }
 
-        public int getFreeKm() {
-            return freeKm;
-        }
 
-        @Override
+
+
+
+
         public double getDeposit() {
             return deposit;
         }
 
+        @Override
         public void setDeposit(double deposit) {
             this.deposit = deposit;
         }
-
+        public int getFreeKm() {
+            return freeKm;
+        }
         @Override
         public void setFreeKm(int freeKm) {
             this.freeKm = freeKm;
-        };
+        }
+        public double getDailyRate() {
+            return dailyRate;
+        }
+        @Override
+        public void setDailyRate(double dailyRate){
+            this.dailyRate = dailyRate;
+        }
     }
