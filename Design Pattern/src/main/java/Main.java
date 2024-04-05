@@ -19,22 +19,22 @@ public class Main {
 
         rentalCompany.rentOutCar(agreement2);
 
-//        List<String> availableCars = CarFactory.listAllCars();
-//        System.out.println("Available cars after return:");
-//        for (String car : availableCars) {
-//            System.out.println(car);
-//        }
+        List<String> availableCars = CarFactory.listAllCars();
+        System.out.println("Available cars after one is rented ( Luxury ):");
+        for (String car : availableCars) {
+            System.out.println(car);
+        }
 
         agreement2.setStartOdoMeter(0);
-        agreement2.setEndOdoMeter(200);
+        agreement2.setEndOdoMeter(2000);
 
         rentalCompany.returnRentedCar(agreement2);
 
-//        List<String> availableCars2 = CarFactory.listAllCars();
-//        System.out.println("Available cars after return:");
-//        for (String car : availableCars2) {
-//            System.out.println(car);
-//        }
+        List<String> availableCars2 = CarFactory.listAllCars();
+        System.out.println("Available cars after return:");
+        for (String car : availableCars2) {
+            System.out.println(car);
+        }
 
 
 //        RentalOptionsDecorator childSeatOption = new ChildSeatDecorator(agreement2);
