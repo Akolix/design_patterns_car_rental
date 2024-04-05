@@ -34,13 +34,37 @@ public class RentalCompany
     }
 
     public void rentOutCar(RentalAgreement agreement) {
-        Car car = (Car) agreement.getCar(); // Get the car associated with the rental agreement
-        CarFactory.rentCar(car); // Remove the car from the list of available cars
-        rentalAgreements.add(agreement); // Add the rental agreement to the list of agreements
+        Car car = (Car) agreement.getCar();
+        CarFactory.rentCar(car);
+        rentalAgreements.add(agreement);
     }
 
     public void returnRentedCar(RentalAgreement agreement) {
-        Car car = (Car) agreement.getCar(); // Get the car associated with the rental agreement
-        CarFactory.returnCar(car); // Return the car to the CarFactory
+        Car car = (Car) agreement.getCar();
+        double totalCost = calculateTotalCost(agreement);
+        int totalKmsDriven = agreement.calculateTotalKmsDriven();
+        int freeKms = car.getFree_km() * agreement.getDuration();
+        int ridenKms = totalKmsDriven - freeKms;
+
+        System.out.println("Total cost for returning the car: " + totalCost);
+        System.out.println("Total Kms driven, minus the free kms per day: " + ridenKms);
+
+        CarFactory.returnCar(car);
+    }
+
+    private double calculateTotalCost(RentalAgreement agreement)
+    {
+        Car car = (Car) agreement.getCar();
+        int totalKmsDriven = agreement.calculateTotalKmsDriven();
+        int freeKms = car.getFree_km() * agreement.getDuration();
+        double pricePerKm = car.getPrice_per_km();
+        double deposit = car.getDeposit();
+        double rentalCost = agreement.calculateTotalCost();
+
+        double totalCost = Math.max(totalKmsDriven - freeKms, 0) * pricePerKm + rentalCost;
+
+        totalCost = Math.round((totalCost - (rentalCost + deposit)) * 100.0) / 100.0;
+
+        return totalCost;
     }
 }
