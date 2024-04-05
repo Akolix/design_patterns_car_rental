@@ -7,6 +7,8 @@ public class RentalAgreement implements RentalAgreementInterface {
     private Customer customer;
     private List<RentalOptionsDecorator> rentalOptions;
     private PricingStrategy pricingStrategy;
+    private int startOdoMeter;
+    private int endOdoMeter;
 
     public RentalAgreement(CarInterface car, int duration, Customer customer) {
         this.car = car;
@@ -39,6 +41,25 @@ public class RentalAgreement implements RentalAgreementInterface {
             }
         }
         return agreement.toString();
+    }
+
+    public void setStartOdoMeter(int startOdoMeter)
+    {
+        this.startOdoMeter = startOdoMeter;
+    }
+
+    public void setEndOdoMeter(int endOdoMeter)
+    {
+        this.endOdoMeter = endOdoMeter;
+    }
+
+    public int calculateTotalKmsDriven()
+    {
+        if (startOdoMeter < 0 || endOdoMeter < 0 || endOdoMeter < startOdoMeter)
+        {
+            throw new IllegalStateException("Invalid odometer readings.");
+        }
+        return endOdoMeter - startOdoMeter;
     }
 
     public int getDuration()

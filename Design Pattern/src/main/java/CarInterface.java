@@ -4,6 +4,11 @@ public interface CarInterface {
     String getBrand();
     String getModel();
     String getType();
+
+    int getFree_km();
+
+    double getPrice_per_km();
+
     double getDeposit();
     int getFreeKm();
     double getDailyRate();
