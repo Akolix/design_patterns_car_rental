@@ -19,6 +19,8 @@ class CarFactoryTest {
         CarFactory.carTypeCounts.clear(); // Clear the car type counts map
     }
 
+
+
     @Test
     void createLuxuryCar() {
         Car luxuryCar = CarFactory.createCar("luxury", "Rolls Royce", "Spectre", 1000, 2, 50, 200, 100);
@@ -65,9 +67,9 @@ class CarFactoryTest {
 
         assertEquals(brand, ((StandardCar) standardCar).getBrand());
         assertEquals(model, ((StandardCar) standardCar).getModel());
-        assertEquals(dailyRate, ((StandardCar) standardCar).getDailyRate());
+        assertEquals(dailyRate, ((StandardCar) standardCar).getDaily_rate());
         assertEquals(pricePerKm, ((StandardCar) standardCar).getPrice_per_km());
-        assertEquals(freeKm, ((StandardCar) standardCar).getFreeKm());
+        assertEquals(freeKm, ((StandardCar) standardCar).getFree_km());
     }
 
     @Test
@@ -88,9 +90,9 @@ class CarFactoryTest {
 
         assertEquals(brand, ((LuxuryCar) luxuryCar).getBrand());
         assertEquals(model, ((LuxuryCar) luxuryCar).getModel());
-        assertEquals(dailyRate, ((LuxuryCar) luxuryCar).getDailyRate());
+        assertEquals(dailyRate, ((LuxuryCar) luxuryCar).getDaily_rate());
         assertEquals(pricePerKm, ((LuxuryCar) luxuryCar).getPrice_per_km());
-        assertEquals(freeKm, ((LuxuryCar) luxuryCar).getFreeKm());
+        assertEquals(freeKm, ((LuxuryCar) luxuryCar).getFree_km());
     }
 
     @Test
@@ -111,9 +113,9 @@ class CarFactoryTest {
 
         assertEquals(brand, ((EconomyCar) economyCar).getBrand());
         assertEquals(model, ((EconomyCar) economyCar).getModel());
-        assertEquals(dailyRate, ((EconomyCar) economyCar).getDailyRate());
+        assertEquals(dailyRate, ((EconomyCar) economyCar).getDaily_rate());
         assertEquals(pricePerKm, ((EconomyCar) economyCar).getPrice_per_km());
-        assertEquals(freeKm, ((EconomyCar) economyCar).getFreeKm());
+        assertEquals(freeKm, ((EconomyCar) economyCar).getFree_km());
     }
 
     @Test
