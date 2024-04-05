@@ -1,6 +1,6 @@
 class HigherDepositLowerRentalPrice extends RentalOptionsDecorator {
-    private static final double DEPOSIT_INCREASE_PERCENTAGE = 1.5; // 150% increase
-    private static final double DISCOUNT_PERCENTAGE = 0.10; // 10% discount
+    private static final double DEPOSIT_INCREASE_PERCENTAGE = 0.5;
+    private static final double DISCOUNT_PERCENTAGE = 0.10;
 
     public HigherDepositLowerRentalPrice(RentalAgreementInterface rentalAgreement) {
         super(rentalAgreement);
@@ -8,11 +8,21 @@ class HigherDepositLowerRentalPrice extends RentalOptionsDecorator {
 
     @Override
     public double calculateTotalCost() {
-        double baseCost = rental_agreement.getBaseCost();
-        double deposit = rental_agreement.getDeposit();
-        double increasedDeposit = deposit * DEPOSIT_INCREASE_PERCENTAGE;
-        double discountedRate = baseCost * (1 - DISCOUNT_PERCENTAGE); // Apply 10% discount
-        return increasedDeposit + discountedRate; // Return the maximum of increased cost or discounted rate
+        CarInterface rentedCar = rental_agreement.getCar();
+
+        if (rentedCar != null) {
+            double dailyRate = rentedCar.getDailyRate();
+            double deposit = rental_agreement.getDeposit();
+            double increasedDeposit = deposit * (1 + DEPOSIT_INCREASE_PERCENTAGE);
+            double discountedRate = dailyRate * (1 - DISCOUNT_PERCENTAGE);
+
+            rentedCar.setDeposit(increasedDeposit);
+            rentedCar.setDailyRate(discountedRate);
+
+            return 0;
+        }
+
+        return 0;
     }
 
     @Override

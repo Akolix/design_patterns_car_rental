@@ -5,5 +5,8 @@ public interface RentalAgreementInterface {
     double calculateTotalCost();
     CarInterface getCar();
     String make_rental_agreement();
+    int getFreeKm();
+    double getDailyRate();
+
 
 }
