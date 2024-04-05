@@ -1,45 +1,45 @@
-    public abstract class Car implements CarInterface {
+public abstract class Car implements CarInterface {
         public String type;
-        private double deposit;
-        private int freeKm;
-        private double price_per_km;
+        protected double deposit;
+        protected int freeKm;
+        protected double dailyRate;
 
         public Car(String type) {
             this.type = type;
             this.deposit = deposit;
+            this.freeKm = freeKm;
+            this.dailyRate = dailyRate;
         }
 
         public String getType() {
             return type;
         }
 
-        public String getBrand(String brand) {
-            return brand;
-        }
 
-        public String getModel(String model) {
-            return model;
-        }
 
-        @Override
-        public int getFree_km()
-        {
-            return freeKm;
-        }
 
-        @Override
-        public double getPrice_per_km()
-        {
-            return price_per_km;
-        }
 
-        //Rental Meuk
-        @Override
+
         public double getDeposit() {
             return deposit;
         }
 
+        @Override
         public void setDeposit(double deposit) {
             this.deposit = deposit;
+        }
+        public int getFreeKm() {
+            return freeKm;
+        }
+        @Override
+        public void setFreeKm(int freeKm) {
+            this.freeKm = freeKm;
+        }
+        public double getDailyRate() {
+            return dailyRate;
+        }
+        @Override
+        public void setDailyRate(double dailyRate){
+            this.dailyRate = dailyRate;
         }
     }
