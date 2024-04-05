@@ -52,7 +52,7 @@ public class RentalCompany
         CarFactory.returnCar(car);
     }
 
-    private double calculateTotalCost(RentalAgreement agreement)
+    public double calculateTotalCost(RentalAgreement agreement)
     {
         Car car = (Car) agreement.getCar();
         int totalKmsDriven = agreement.calculateTotalKmsDriven();
@@ -65,6 +65,6 @@ public class RentalCompany
 
         totalCost = Math.round((totalCost - (rentalCost + deposit)) * 100.0) / 100.0;
 
-        return totalCost;
+        return Math.max(totalCost, 0);
     }
 }
