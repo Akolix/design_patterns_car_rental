@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-import java.util.List;
+
 import java.util.Map;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -69,7 +69,7 @@ class CarFactoryTest {
         assertEquals(model, ((StandardCar) standardCar).getModel());
         assertEquals(dailyRate, ((StandardCar) standardCar).getDaily_rate());
         assertEquals(pricePerKm, ((StandardCar) standardCar).getPrice_per_km());
-        assertEquals(freeKm, ((StandardCar) standardCar).getFree_km());
+        assertEquals(freeKm, ((StandardCar) standardCar).getFreeKm());
     }
 
     @Test
@@ -92,7 +92,7 @@ class CarFactoryTest {
         assertEquals(model, ((LuxuryCar) luxuryCar).getModel());
         assertEquals(dailyRate, ((LuxuryCar) luxuryCar).getDaily_rate());
         assertEquals(pricePerKm, ((LuxuryCar) luxuryCar).getPrice_per_km());
-        assertEquals(freeKm, ((LuxuryCar) luxuryCar).getFree_km());
+        assertEquals(freeKm, ((LuxuryCar) luxuryCar).getFreeKm());
     }
 
     @Test
@@ -115,7 +115,7 @@ class CarFactoryTest {
         assertEquals(model, ((EconomyCar) economyCar).getModel());
         assertEquals(dailyRate, ((EconomyCar) economyCar).getDaily_rate());
         assertEquals(pricePerKm, ((EconomyCar) economyCar).getPrice_per_km());
-        assertEquals(freeKm, ((EconomyCar) economyCar).getFree_km());
+        assertEquals(freeKm, ((EconomyCar) economyCar).getFreeKm());
     }
 
     @Test

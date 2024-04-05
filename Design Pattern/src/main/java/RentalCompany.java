@@ -43,7 +43,7 @@ public class RentalCompany
         Car car = (Car) agreement.getCar();
         double totalCost = calculateTotalCost(agreement);
         int totalKmsDriven = agreement.calculateTotalKmsDriven();
-        int freeKms = car.getFree_km() * agreement.getDuration();
+        int freeKms = car.getFreeKm() * agreement.getDuration();
         int ridenKms = totalKmsDriven - freeKms;
 
         System.out.println("Total cost for returning the car: " + totalCost);
@@ -56,7 +56,7 @@ public class RentalCompany
     {
         Car car = (Car) agreement.getCar();
         int totalKmsDriven = agreement.calculateTotalKmsDriven();
-        int freeKms = car.getFree_km() * agreement.getDuration();
+        int freeKms = car.getFreeKm() * agreement.getDuration();
         double pricePerKm = car.getPrice_per_km();
         double deposit = car.getDeposit();
         double rentalCost = agreement.calculateTotalCost();

@@ -66,7 +66,7 @@ public class LuxuryCar extends Car {
         this.price_per_km = price_per_km;
     }
 
-    public int getFree_km() {
+    public int getFreeKm() {
         return free_km;
     }
 

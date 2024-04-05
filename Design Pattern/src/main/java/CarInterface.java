@@ -7,7 +7,7 @@ public interface CarInterface {
     String getModel();
     String getType();
 
-    int getFree_km();
+    int getFreeKm();
 
     double getPrice_per_km();
 

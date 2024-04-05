@@ -22,7 +22,7 @@
         }
 
         @Override
-        public int getFree_km()
+        public int getFreeKm()
         {
             return freeKm;
         }
