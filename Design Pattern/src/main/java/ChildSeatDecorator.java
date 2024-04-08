@@ -1,5 +1,7 @@
-class ChildSeatDecorator extends RentalOptionsDecorator {
-    public ChildSeatDecorator(RentalAgreementInterface rentalAgreement) {
+class ChildSeatDecorator extends RentalOptionsDecorator
+{
+    public ChildSeatDecorator(RentalAgreementInterface rentalAgreement)
+    {
         super(rentalAgreement);
     }
 
@@ -10,7 +12,8 @@ class ChildSeatDecorator extends RentalOptionsDecorator {
     }
 
     @Override
-    public String makeRentalAgreement() {
+    public String makeRentalAgreement()
+    {
         return "Child Seat option added";
     }
 }

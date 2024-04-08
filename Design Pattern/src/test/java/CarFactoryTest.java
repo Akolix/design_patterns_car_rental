@@ -1,56 +1,65 @@
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.Map;
 
 import org.junit.jupiter.api.BeforeEach;
 
-class CarFactoryTest {
+class CarFactoryTest
+{
 
     @BeforeEach
-    void setUp() {
+    void setUp()
+    {
         CarFactory.createdCars.clear();
     }
 
     @AfterEach
-    void tearDown() {
+    void tearDown()
+    {
         CarFactory.createdCars.clear();
         CarFactory.carTypeCounts.clear(); // Clear the car type counts map
     }
 
 
-
     @Test
-    void createLuxuryCar() {
+    void createLuxuryCar()
+    {
         Car luxuryCar = CarFactory.createCar("luxury", "Rolls Royce", "Spectre", 1000, 2, 50, 200, 100);
         assertNotNull(luxuryCar);
         assertTrue(luxuryCar instanceof LuxuryCar);
     }
 
     @Test
-    void createEconomyCar() {
+    void createEconomyCar()
+    {
         Car economyCar = CarFactory.createCar("economy", "Toyota", "Prius", 50, 0.20, 250, 200, 100);
         assertNotNull(economyCar);
         assertTrue(economyCar instanceof EconomyCar);
     }
 
     @Test
-    void createStandardCar() {
+    void createStandardCar()
+    {
         Car standardCar = CarFactory.createCar("standard", "Ford", "Mondeo", 27, 0.39, 150, 200, 100);
         assertNotNull(standardCar);
         assertTrue(standardCar instanceof StandardCar);
     }
 
     @Test
-    void createFaultyCar() {
-        assertThrows(IllegalArgumentException.class, () -> {
+    void createFaultyCar()
+    {
+        assertThrows(IllegalArgumentException.class, () ->
+        {
             Car invalidCar = CarFactory.createCar("invalid car type", "Invalid Brand", "Invalid Model", 0, 0, 0, 0, 100);
         });
     }
 
     @Test
-    void createStandardCarWithAttributes() {
+    void createStandardCarWithAttributes()
+    {
         String brand = "Ford";
         String model = "Mondeo";
         double dailyRate = 27.0;
@@ -73,7 +82,8 @@ class CarFactoryTest {
     }
 
     @Test
-    void createLuxuryCarWithAttributes() {
+    void createLuxuryCarWithAttributes()
+    {
         String brand = "Rolls Royce";
         String model = "Spectre";
         double dailyRate = 1000;
@@ -96,7 +106,8 @@ class CarFactoryTest {
     }
 
     @Test
-    void createEconomyCarWithAttributes() {
+    void createEconomyCarWithAttributes()
+    {
         String brand = "Toyota";
         String model = "Prius";
         double dailyRate = 50;
@@ -119,7 +130,8 @@ class CarFactoryTest {
     }
 
     @Test
-    void countAllCars() {
+    void countAllCars()
+    {
         CarFactory.createCar("luxury", "Rolls Royce", "Spectre", 1000, 2, 50, 2000, 100);
         CarFactory.createCar("economy", "Toyota", "Prius", 50, 0.20, 250, 200, 100);
         CarFactory.createCar("standard", "Ford", "Mondeo", 27, 0.39, 150, 200, 100);
@@ -128,7 +140,8 @@ class CarFactoryTest {
     }
 
     @Test
-    void countCarsPerType() {
+    void countCarsPerType()
+    {
         CarFactory.createCar("luxury", "Rolls Royce", "Spectre", 1000, 2, 50, 2000, 100);
         CarFactory.createCar("economy", "Toyota", "Prius", 50, 0.20, 250, 200, 100);
         CarFactory.createCar("standard", "Ford", "Mondeo", 27, 0.39, 150, 200, 100);
@@ -141,7 +154,8 @@ class CarFactoryTest {
     }
 
     @Test
-    void removeCar() {
+    void removeCar()
+    {
         CarFactory.createCar("luxury", "Rolls Royce", "Spectre", 1000, 2, 50, 2000, 100);
         CarFactory.createCar("luxury", "Rolls Royce", "Phantom", 750, 1.25, 75, 1500, 100);
         CarFactory.createCar("economy", "Toyota", "Prius", 50, 0.20, 250, 200, 100);
@@ -159,7 +173,8 @@ class CarFactoryTest {
     }
 
     @Test
-    void makeTwoOfTheSameCarThenRemoveOne() {
+    void makeTwoOfTheSameCarThenRemoveOne()
+    {
         CarFactory.createCar("luxury", "Rolls Royce", "Spectre", 1000, 2, 50, 2000, 100);
         CarFactory.createCar("luxury", "Rolls Royce", "Spectre", 1000, 2, 50, 2000, 100);
 
@@ -171,7 +186,8 @@ class CarFactoryTest {
     }
 
     @Test
-    void makeTwoOfTheSameCarThenRemoveThemBoth() {
+    void makeTwoOfTheSameCarThenRemoveThemBoth()
+    {
         CarFactory.createCar("luxury", "Rolls Royce", "Spectre", 1000, 2, 50, 2000, 100);
         CarFactory.createCar("luxury", "Rolls Royce", "Spectre", 1000, 2, 50, 2000, 100);
 

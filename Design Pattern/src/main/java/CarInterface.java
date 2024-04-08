@@ -1,10 +1,13 @@
-public interface CarInterface {
-//    String getType();
+public interface CarInterface
+{
     void assemble();
+
     String get_description();
-//    double getDaily_rate();
+
     String getBrand();
+
     String getModel();
+
     String getType();
 
     int getFreeKm();
@@ -14,7 +17,10 @@ public interface CarInterface {
     double getDeposit();
 
     double getDailyRate();
+
     void setDeposit(double deposit);
+
     void setFreeKm(int freeKm);
+
     void setDailyRate(double dailyRate);
 }

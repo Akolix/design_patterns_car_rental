@@ -13,33 +13,15 @@ public class RentalCompany
         this.rentalAgreements = new ArrayList<>();
     }
 
-    public String getName()
+    public void rentOutCar(RentalAgreement agreement)
     {
-        return name;
-    }
-
-    public void setName(String name)
-    {
-        this.name = name;
-    }
-
-    public String getLocation()
-    {
-        return location;
-    }
-
-    public void setLocation(String location)
-    {
-        this.location = location;
-    }
-
-    public void rentOutCar(RentalAgreement agreement) {
         Car car = (Car) agreement.getCar();
         CarFactory.rentCar(car);
         rentalAgreements.add(agreement);
     }
 
-    public void returnRentedCar(RentalAgreement agreement) {
+    public void returnRentedCar(RentalAgreement agreement)
+    {
         Car car = (Car) agreement.getCar();
         double totalCost = calculateTotalCost(agreement);
         int totalKmsDriven = agreement.calculateTotalKmsDriven();

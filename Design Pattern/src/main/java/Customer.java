@@ -1,4 +1,5 @@
-public class Customer {
+public class Customer
+{
     private String firstName;
     private String lastName;
     private String address;
@@ -6,7 +7,8 @@ public class Customer {
     private String email;
     private boolean isCompany;
 
-    public Customer(String firstName, String lastName, String address, String phoneNumber, String email, boolean isCompany) {
+    public Customer(String firstName, String lastName, String address, String phoneNumber, String email, boolean isCompany)
+    {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
@@ -15,16 +17,18 @@ public class Customer {
         this.isCompany = isCompany;
     }
 
-    public String getFirstName() {
+    public String getFirstName()
+    {
         return firstName;
     }
-    public String getLastName() {
+
+    public String getLastName()
+    {
         return lastName;
     }
-    public boolean isCompany() {
+
+    public boolean isCompany()
+    {
         return isCompany;
-    }
-    public void setCompany(boolean company) {
-        isCompany = company;
     }
 }

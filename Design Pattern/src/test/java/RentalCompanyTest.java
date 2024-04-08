@@ -58,6 +58,6 @@ public class RentalCompanyTest
         rentalCompany.rentOutCar(agreement1);
         double actualTotalCost = rentalCompany.calculateTotalCost(agreement1);
         rentalCompany.returnRentedCar(agreement1);
-        assertEquals(1000.0,actualTotalCost);
+        assertEquals(1000.0, actualTotalCost);
     }
 }

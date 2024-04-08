@@ -1,12 +1,13 @@
 import org.junit.jupiter.api.Test;
 
-
 import static org.junit.jupiter.api.Assertions.*;
 
-class RentalAgreementTest {
+class RentalAgreementTest
+{
 
     @Test
-    void make_rental_agreement_Company_Daily_Standard() {
+    void make_rental_agreement_Company_Daily_Standard()
+    {
         CarInterface car = new StandardCar("Ford", "Mondeo", 27, 0.39, 150, 200, 100);
         Customer customer = new Customer("John", "Doe", "Main Avenue, 123", "0612345789", "john.doe@example.com", true);
 
@@ -17,7 +18,8 @@ class RentalAgreementTest {
     }
 
     @Test
-    void make_rental_agreement_Company_Weekly_Economy() {
+    void make_rental_agreement_Company_Weekly_Economy()
+    {
         CarInterface car = new EconomyCar("Toyota", "Prius", 50, 0.20, 250, 200, 100);
         Customer customer = new Customer("John", "Doe", "Main Avenue, 123", "0612345789", "john.doe@example.com", true);
 
@@ -28,7 +30,8 @@ class RentalAgreementTest {
     }
 
     @Test
-    void make_rental_agreement_Company_Monthly_Luxury() {
+    void make_rental_agreement_Company_Monthly_Luxury()
+    {
         CarInterface car = new LuxuryCar("Rolls Royce", "Spectre", 1000, 2, 50, 2000, 789);
         Customer customer = new Customer("John", "Doe", "Main Avenue, 123", "0612345789", "john.doe@example.com", true);
 
@@ -39,7 +42,8 @@ class RentalAgreementTest {
     }
 
     @Test
-    void make_rental_agreement_Private_Daily_Standard() {
+    void make_rental_agreement_Private_Daily_Standard()
+    {
         CarInterface car = new StandardCar("Ford", "Mondeo", 27, 0.39, 150, 200, 100);
         Customer customer = new Customer("John", "Doe", "Main Avenue, 123", "0612345789", "john.doe@example.com", false);
 
@@ -50,7 +54,8 @@ class RentalAgreementTest {
     }
 
     @Test
-    void make_rental_agreement_Private_Weekly_Economy() {
+    void make_rental_agreement_Private_Weekly_Economy()
+    {
         CarInterface car = new EconomyCar("Toyota", "Prius", 50, 0.20, 250, 200, 100);
         Customer customer = new Customer("John", "Doe", "Main Avenue, 123", "0612345789", "john.doe@example.com", false);
 
@@ -61,7 +66,8 @@ class RentalAgreementTest {
     }
 
     @Test
-    void make_rental_agreement_Private_Monthly_Luxury() {
+    void make_rental_agreement_Private_Monthly_Luxury()
+    {
         CarInterface car = new LuxuryCar("Rolls Royce", "Spectre", 1000, 2, 50, 2000, 789);
         Customer customer = new Customer("John", "Doe", "Main Avenue, 123", "0612345789", "john.doe@example.com", false);
 
@@ -72,7 +78,8 @@ class RentalAgreementTest {
     }
 
     @Test
-    void make_rental_agreement_Private_Monthly_Luxury_With_Options() {
+    void make_rental_agreement_Private_Monthly_Luxury_With_Options()
+    {
         CarInterface car = new LuxuryCar("Rolls Royce", "Spectre", 1000, 2, 50, 2000, 789);
         Customer customer = new Customer("John", "Doe", "Main Avenue, 123", "0612345789", "john.doe@example.com", false);
 
@@ -87,7 +94,8 @@ class RentalAgreementTest {
     }
 
     @Test
-    void make_rental_agreement_Private_Daily_Standard_With_Options() {
+    void make_rental_agreement_Private_Daily_Standard_With_Options()
+    {
         CarInterface car = new StandardCar("Ford", "Mondeo", 27, 0.39, 150, 200, 100);
         Customer customer = new Customer("John", "Doe", "Main Avenue, 123", "0612345789", "john.doe@example.com", false);
 
@@ -104,7 +112,8 @@ class RentalAgreementTest {
     }
 
     @Test
-    void make_rental_agreement_Company_Daily_Standard_With_Extra_Kilometer_Option() {
+    void make_rental_agreement_Company_Daily_Standard_With_Extra_Kilometer_Option()
+    {
         CarInterface car = new StandardCar("Ford", "Mondeo", 27, 0.39, 150, 200, 100);
         Customer customer = new Customer("John", "Doe", "Main Avenue, 123", "0612345789", "john.doe@example.com", true);
 
@@ -120,7 +129,8 @@ class RentalAgreementTest {
     }
 
     @Test
-    void make_rental_agreement_Private_Weekly_Economy_With_Extra_Kilometer_Option() {
+    void make_rental_agreement_Private_Weekly_Economy_With_Extra_Kilometer_Option()
+    {
         CarInterface car = new EconomyCar("Toyota", "Prius", 50, 0.20, 250, 200, 100);
         Customer customer = new Customer("John", "Doe", "Main Avenue, 123", "0612345789", "john.doe@example.com", false);
 
@@ -136,7 +146,8 @@ class RentalAgreementTest {
     }
 
     @Test
-    void make_rental_agreement_Private_Monthy_Luxury_With_Extra_Kilometer_Option() {
+    void make_rental_agreement_Private_Monthy_Luxury_With_Extra_Kilometer_Option()
+    {
         CarInterface car = new LuxuryCar("Rolls Royce", "Spectre", 1000, 2, 50, 2000, 789);
         Customer customer = new Customer("John", "Doe", "Main Avenue, 123", "0612345789", "john.doe@example.com", false);
 
@@ -152,7 +163,8 @@ class RentalAgreementTest {
     }
 
     @Test
-    void make_rental_agreement_Private_Daily_Standard_With_Higher_Deposit_Lower_Rental() {
+    void make_rental_agreement_Private_Daily_Standard_With_Higher_Deposit_Lower_Rental()
+    {
         CarInterface car = new StandardCar("Ford", "Mondeo", 27, 0.39, 150, 200, 100);
         Customer customer = new Customer("John", "Doe", "Main Avenue, 123", "0612345789", "john.doe@example.com", false);
 
@@ -169,7 +181,8 @@ class RentalAgreementTest {
     }
 
     @Test
-    void make_rental_agreement_Private_Daily_Standard_With_Lower_Deposit_Higher_Rental() {
+    void make_rental_agreement_Private_Daily_Standard_With_Lower_Deposit_Higher_Rental()
+    {
         CarInterface car = new StandardCar("Ford", "Mondeo", 27, 0.39, 150, 200, 100);
         Customer customer = new Customer("John", "Doe", "Main Avenue, 123", "0612345789", "john.doe@example.com", false);
 

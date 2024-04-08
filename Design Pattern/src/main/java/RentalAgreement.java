@@ -1,7 +1,8 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class RentalAgreement implements RentalAgreementInterface {
+public class RentalAgreement implements RentalAgreementInterface
+{
     private CarInterface car;
     private int duration;
     private Customer customer;
@@ -10,15 +11,18 @@ public class RentalAgreement implements RentalAgreementInterface {
     private int startOdoMeter;
     private int endOdoMeter;
 
-    public RentalAgreement(CarInterface car, int duration, Customer customer) {
+    public RentalAgreement(CarInterface car, int duration, Customer customer)
+    {
         this.car = car;
         this.duration = duration;
         this.customer = customer;
         this.rentalOptions = new ArrayList<>();
 
-        if (customer.isCompany()) {
+        if (customer.isCompany())
+        {
             this.pricingStrategy = new CompanyPricingStrategy().selectStrategy(duration);
-        } else {
+        } else
+        {
             this.pricingStrategy = new PrivateUserPricingStrategy().selectStrategy(duration);
         }
     }
@@ -67,22 +71,29 @@ public class RentalAgreement implements RentalAgreementInterface {
         return duration;
     }
 
-    public PricingStrategy getPricingStrategy() {
+    public PricingStrategy getPricingStrategy()
+    {
         return pricingStrategy;
     }
+
     public double getBaseCost()
     {
         return car.getDailyRate() * duration;
     }
-    public int getFreeKm() {
+
+    public int getFreeKm()
+    {
         return car.getFreeKm();
     }
+
     @Override
-    public double getDailyRate() {
+    public double getDailyRate()
+    {
         return car.getDailyRate();
     }
 
-    public void setPricingStrategy(PricingStrategy pricingStrategy) {
+    public void setPricingStrategy(PricingStrategy pricingStrategy)
+    {
         this.pricingStrategy = pricingStrategy;
     }
 
@@ -96,18 +107,21 @@ public class RentalAgreement implements RentalAgreementInterface {
         return car;
     }
 
-    public double calculateTotalCost() {
-        // Determine the pricing strategy based on the customer type
+    public double calculateTotalCost()
+    {
         PricingStrategy selectedStrategy;
-        if (customer.isCompany()) {
+        if (customer.isCompany())
+        {
             selectedStrategy = new CompanyPricingStrategy();
-        } else {
+        } else
+        {
             selectedStrategy = new PrivateUserPricingStrategy();
         }
 
 
         double optionsCost = 0;
-        for (RentalOptionsDecorator option : rentalOptions) {
+        for (RentalOptionsDecorator option : rentalOptions)
+        {
             optionsCost += option.calculateTotalCost();
         }
 
@@ -117,13 +131,6 @@ public class RentalAgreement implements RentalAgreementInterface {
 
         return totalRentalCost;
     }
-
-
-
-
-
-
-
 
 
 }
