@@ -1,9 +1,8 @@
-    public abstract class Car implements CarInterface {
+public abstract class Car implements CarInterface {
         public String type;
         protected double deposit;
         protected int freeKm;
         protected double dailyRate;
-        private double price_per_km;
 
         public Car(String type) {
             this.type = type;
@@ -11,6 +10,7 @@
             this.freeKm = freeKm;
             this.dailyRate = dailyRate;
         }
+
         public String getType() {
             return type;
         }

@@ -78,7 +78,7 @@ class RentalAgreementTest {
 
         RentalAgreement rentalAgreement = new RentalAgreement(car, 41, customer);
 
-        RentalOptionsDecorator tripleAOption  = new TripleADecorator(rentalAgreement);
+        RentalOptionsDecorator tripleAOption = new TripleADecorator(rentalAgreement);
 
         rentalAgreement.addOptionsToAgreement(tripleAOption);
 
@@ -180,10 +180,8 @@ class RentalAgreementTest {
         rentalAgreement.addOptionsToAgreement(lowerDepositHigherRental);
 
         assertEquals("Rental agreement: John Doe, 5 days, StandardCar with the following options:\n- Lower Deposit Higher Rental Price option added", rentalAgreement.make_rental_agreement());
-//        assertEquals(300.75, rentalAgreement.calculateTotalCost());
-//        assertEquals(33.75, car.getDailyRate());
-        assertEquals(132, rentalAgreement.getCar().getDeposit());
+        assertEquals(308.75, rentalAgreement.calculateTotalCost());
+        assertEquals(33.75, car.getDailyRate());
+        assertEquals(140, rentalAgreement.getCar().getDeposit());
     }
-
-
 }
